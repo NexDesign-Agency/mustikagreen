@@ -1,0 +1,1310 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tentang Kami – PT Mustika Green Indonesia</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Syne:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════
+   CSS VARIABLES & RESET
+═══════════════════════════════ */
+:root {
+  --deep:   #091710;
+  --forest: #122b1d;
+  --mid:    #1e4830;
+  --leaf:   #2f6e49;
+  --gold:   #c47d0e;
+  --sun:    #e9a020;
+  --pale:   #f5cb6a;
+  --cream:  #f4ede0;
+  --paper:  #faf7f1;
+  --mist:   #7a8c80;
+  --ink:    #111c15;
+  --white:  #fdfcf9;
+}
+
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; font-size:16px; }
+
+body {
+  font-family:'Syne',sans-serif;
+  background:var(--paper);
+  color:var(--ink);
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+
+/* Grain */
+body::after {
+  content:'';
+  position:fixed; inset:0; z-index:9999;
+  pointer-events:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)' opacity='0.03'/%3E%3C/svg%3E");
+  opacity:.55;
+}
+
+::-webkit-scrollbar { width:4px; }
+::-webkit-scrollbar-track { background:var(--deep); }
+::-webkit-scrollbar-thumb { background:var(--gold); border-radius:2px; }
+
+/* ═══════════════════════════════
+   NAV
+═══════════════════════════════ */
+nav {
+  position:fixed; top:0; left:0; right:0; z-index:800;
+  height:60px;
+  background:rgba(9,23,16,.95);
+  backdrop-filter:blur(16px);
+  border-bottom:1px solid rgba(196,125,14,.18);
+  display:flex; align-items:center; justify-content:space-between;
+  padding:0 1.25rem;
+}
+
+.nav-logo {
+  display:flex; align-items:center; gap:.6rem;
+  text-decoration:none;
+}
+.nav-logo-mark {
+  width:34px; height:34px;
+  background:linear-gradient(135deg,var(--gold),var(--sun));
+  border-radius:9px;
+  display:flex; align-items:center; justify-content:center;
+  font-size:1.1rem;
+}
+.nav-logo-text {
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.1rem; font-weight:700;
+  color:var(--white); line-height:1.1;
+}
+.nav-logo-text small {
+  display:block;
+  font-family:'Syne',sans-serif;
+  font-size:.52rem; font-weight:500;
+  color:var(--sun); letter-spacing:.15em; text-transform:uppercase;
+}
+
+.nav-right { display:flex; align-items:center; gap:.75rem; }
+
+.nav-back {
+  text-decoration:none;
+  font-size:.78rem; font-weight:600;
+  color:rgba(253,252,249,.6);
+  display:flex; align-items:center; gap:.35rem;
+  transition:color .2s;
+}
+.nav-back:hover { color:var(--sun); }
+
+.nav-download-btn {
+  display:flex; align-items:center; gap:.4rem;
+  background:linear-gradient(135deg,var(--gold),var(--sun));
+  color:var(--deep);
+  font-weight:700; font-size:.78rem;
+  padding:.5rem 1rem; border-radius:100px;
+  border:none; cursor:pointer;
+  transition:opacity .2s, transform .15s;
+  text-decoration:none;
+}
+.nav-download-btn:active { transform:scale(.96); opacity:.85; }
+
+/* ═══════════════════════════════
+   LANG TOGGLE
+═══════════════════════════════ */
+.lang-toggle {
+  position:fixed; bottom:5.5rem; right:1.25rem;
+  z-index:700;
+  display:flex;
+  background:var(--forest);
+  border:1px solid rgba(196,125,14,.25);
+  border-radius:100px;
+  overflow:hidden;
+  box-shadow:0 4px 16px rgba(0,0,0,.3);
+}
+.lang-btn {
+  padding:.5rem .9rem;
+  font-size:.72rem; font-weight:700;
+  font-family:'JetBrains Mono',monospace;
+  color:rgba(253,252,249,.45);
+  background:none; border:none;
+  cursor:pointer; letter-spacing:.08em;
+  transition:all .2s;
+}
+.lang-btn.active {
+  background:linear-gradient(135deg,var(--gold),var(--sun));
+  color:var(--deep);
+  border-radius:100px;
+}
+
+/* ═══════════════════════════════
+   COVER / HERO
+═══════════════════════════════ */
+.cp-cover {
+  min-height:100svh;
+  background:var(--deep);
+  position:relative; overflow:hidden;
+  display:flex; flex-direction:column;
+  justify-content:flex-end;
+  padding:calc(60px + 2.5rem) 1.25rem 3rem;
+}
+
+.cover-blob {
+  position:absolute; border-radius:50%; filter:blur(90px); pointer-events:none;
+}
+.cover-blob-1 {
+  width:350px; height:350px;
+  background:radial-gradient(circle,rgba(47,110,73,.4),transparent 70%);
+  top:-80px; right:-80px; opacity:.6;
+}
+.cover-blob-2 {
+  width:250px; height:250px;
+  background:radial-gradient(circle,rgba(196,125,14,.5),transparent 70%);
+  bottom:10%; left:-60px; opacity:.45;
+}
+
+.cover-rings {
+  position:absolute; right:-150px; top:30%;
+  pointer-events:none;
+}
+.cover-ring {
+  position:absolute; border-radius:50%;
+  border:1px solid rgba(196,125,14,.1);
+  transform:translate(-50%,-50%);
+}
+.cover-ring:nth-child(1){width:280px;height:280px;}
+.cover-ring:nth-child(2){width:460px;height:460px;}
+.cover-ring:nth-child(3){width:640px;height:640px;}
+
+.cover-eyebrow {
+  font-family:'JetBrains Mono',monospace;
+  font-size:.65rem; font-weight:700;
+  letter-spacing:.22em; text-transform:uppercase;
+  color:var(--gold);
+  margin-bottom:1.2rem;
+  position:relative; z-index:2;
+}
+
+.cover-title {
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(2.8rem,11vw,5rem);
+  font-weight:700;
+  color:var(--white);
+  line-height:1.0;
+  letter-spacing:-.02em;
+  margin-bottom:1.5rem;
+  position:relative; z-index:2;
+}
+.cover-title em {
+  font-style:italic;
+  background:linear-gradient(90deg,var(--gold),var(--sun),var(--pale));
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+}
+
+.cover-tagline {
+  font-size:.95rem; line-height:1.8;
+  color:rgba(253,252,249,.55);
+  max-width:480px;
+  margin-bottom:2.5rem;
+  position:relative; z-index:2;
+}
+
+.cover-meta {
+  display:grid; grid-template-columns:1fr 1fr;
+  gap:.75rem;
+  position:relative; z-index:2;
+  border-top:1px solid rgba(253,252,249,.08);
+  padding-top:2rem;
+  margin-top:.5rem;
+}
+.cover-meta-item {}
+.cover-meta-label {
+  font-family:'JetBrains Mono',monospace;
+  font-size:.58rem; font-weight:700;
+  letter-spacing:.18em; text-transform:uppercase;
+  color:var(--gold); margin-bottom:.25rem;
+}
+.cover-meta-val {
+  font-size:.85rem; font-weight:600;
+  color:rgba(253,252,249,.75);
+  line-height:1.4;
+}
+
+/* ═══════════════════════════════
+   SECTION COMMONS
+═══════════════════════════════ */
+.cp-section { padding:3.5rem 1.25rem; }
+
+.tag {
+  display:inline-block;
+  font-family:'JetBrains Mono',monospace;
+  font-size:.6rem; font-weight:700;
+  letter-spacing:.2em; text-transform:uppercase;
+  color:var(--gold); margin-bottom:.75rem;
+}
+
+.s-title {
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(1.75rem,6.5vw,2.6rem);
+  font-weight:700; line-height:1.1;
+  margin-bottom:.9rem;
+}
+
+.s-desc {
+  font-size:.9rem; line-height:1.85;
+  color:var(--mist);
+}
+
+.divider {
+  height:1px;
+  background:linear-gradient(90deg,var(--gold),rgba(196,125,14,.1));
+  margin:0;
+  opacity:.35;
+}
+
+/* ═══════════════════════════════
+   TENTANG / ABOUT
+═══════════════════════════════ */
+.about-section { background:var(--paper); }
+
+.about-body {
+  font-size:.93rem; line-height:1.95;
+  color:var(--mist);
+  margin-bottom:1.5rem;
+}
+.about-body strong { color:var(--ink); font-weight:700; }
+
+.about-pull {
+  border-left:3px solid var(--gold);
+  padding:1rem 1.2rem;
+  margin:1.75rem 0;
+  background:rgba(196,125,14,.05);
+  border-radius:0 10px 10px 0;
+}
+.about-pull p {
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.2rem; font-style:italic;
+  font-weight:600; line-height:1.6;
+  color:var(--forest);
+}
+.about-pull small {
+  display:block; margin-top:.5rem;
+  font-size:.7rem; font-weight:700;
+  letter-spacing:.1em; text-transform:uppercase;
+  color:var(--gold);
+}
+
+/* ═══════════════════════════════
+   VISI MISI
+═══════════════════════════════ */
+.vm-section { background:var(--deep); color:var(--white); }
+.vm-section .s-title { color:var(--white); }
+.vm-section .s-desc { color:rgba(253,252,249,.5); }
+
+.vm-grid {
+  display:grid; gap:1rem;
+  margin-top:2.5rem;
+}
+
+.vm-card {
+  border-radius:18px;
+  padding:1.6rem;
+  position:relative; overflow:hidden;
+}
+.vm-card-visi {
+  background:linear-gradient(135deg,var(--mid),var(--forest));
+  border:1px solid rgba(196,125,14,.3);
+}
+.vm-card-misi {
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.08);
+}
+
+.vm-card-icon {
+  font-size:1.8rem; margin-bottom:1rem; display:block;
+}
+.vm-card-label {
+  font-family:'JetBrains Mono',monospace;
+  font-size:.6rem; font-weight:700;
+  letter-spacing:.2em; text-transform:uppercase;
+  color:var(--gold); margin-bottom:.6rem;
+}
+.vm-card-text {
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.1rem; font-weight:600; font-style:italic;
+  line-height:1.65;
+  color:var(--white);
+}
+
+.misi-list {
+  list-style:none;
+  display:flex; flex-direction:column; gap:.6rem;
+  margin-top:1rem;
+}
+.misi-list li {
+  display:flex; gap:.75rem; align-items:flex-start;
+  font-size:.85rem; line-height:1.65;
+  color:rgba(253,252,249,.7);
+}
+.misi-list li::before {
+  content:'→';
+  color:var(--gold); flex-shrink:0;
+  font-size:.8rem; padding-top:.05rem;
+}
+
+/* ═══════════════════════════════
+   LEGALITAS
+═══════════════════════════════ */
+.legal-section { background:var(--cream); }
+
+.legal-grid {
+  display:grid; gap:.75rem;
+  margin-top:2rem;
+}
+
+.legal-item {
+  background:var(--paper);
+  border:1px solid rgba(0,0,0,.07);
+  border-radius:14px;
+  padding:1.1rem 1.25rem;
+  display:flex; align-items:center; gap:1rem;
+}
+.legal-icon {
+  width:40px; height:40px;
+  background:linear-gradient(135deg,rgba(196,125,14,.14),rgba(233,160,32,.07));
+  border:1px solid rgba(196,125,14,.2);
+  border-radius:10px;
+  display:flex; align-items:center; justify-content:center;
+  font-size:1.1rem; flex-shrink:0;
+}
+.legal-label {
+  font-size:.68rem; font-weight:700;
+  letter-spacing:.1em; text-transform:uppercase;
+  color:var(--gold); margin-bottom:.2rem;
+  font-family:'JetBrains Mono',monospace;
+}
+.legal-val {
+  font-size:.88rem; font-weight:600; color:var(--forest);
+}
+
+/* ═══════════════════════════════
+   TIM
+═══════════════════════════════ */
+.team-section { background:var(--paper); }
+
+.team-grid {
+  display:grid; gap:1rem;
+  margin-top:2rem;
+}
+
+.team-card {
+  background:var(--cream);
+  border:1px solid rgba(0,0,0,.07);
+  border-radius:18px;
+  padding:1.5rem;
+  display:flex; gap:1.1rem; align-items:flex-start;
+  transition:box-shadow .25s, transform .25s;
+}
+.team-card:hover { transform:translateY(-3px); box-shadow:0 12px 32px rgba(0,0,0,.08); }
+
+.team-avatar {
+  width:52px; height:52px;
+  border-radius:14px;
+  background:linear-gradient(135deg,var(--mid),var(--leaf));
+  display:flex; align-items:center; justify-content:center;
+  font-size:1.4rem; flex-shrink:0;
+  border:2px solid rgba(196,125,14,.25);
+}
+.team-name {
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.05rem; font-weight:700;
+  color:var(--forest); margin-bottom:.15rem;
+}
+.team-role {
+  font-size:.72rem; font-weight:700;
+  letter-spacing:.08em; text-transform:uppercase;
+  color:var(--gold); margin-bottom:.4rem;
+  font-family:'JetBrains Mono',monospace;
+}
+.team-desc {
+  font-size:.8rem; line-height:1.65; color:var(--mist);
+}
+
+/* ═══════════════════════════════
+   LAYANAN RINGKAS
+═══════════════════════════════ */
+.services-section { background:var(--white); }
+
+.services-grid {
+  display:grid; grid-template-columns:1fr 1fr;
+  gap:.75rem; margin-top:2rem;
+}
+.svc-card {
+  background:var(--paper);
+  border:1px solid rgba(0,0,0,.07);
+  border-radius:14px;
+  padding:1.25rem 1rem;
+  position:relative; overflow:hidden;
+  transition:transform .2s;
+}
+.svc-card::before {
+  content:'';
+  position:absolute; top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,var(--gold),var(--sun));
+  transform:scaleX(0); transform-origin:left;
+  transition:transform .3s;
+}
+.svc-card:hover { transform:translateY(-3px); }
+.svc-card:hover::before { transform:scaleX(1); }
+
+.svc-icon { font-size:1.5rem; margin-bottom:.7rem; display:block; }
+.svc-title {
+  font-family:'Cormorant Garamond',serif;
+  font-size:1rem; font-weight:700;
+  color:var(--forest); margin-bottom:.4rem;
+}
+.svc-desc {
+  font-size:.75rem; line-height:1.65; color:var(--mist);
+}
+
+/* ═══════════════════════════════
+   KEUNGGULAN / STATS
+═══════════════════════════════ */
+.stats-section {
+  background:var(--forest);
+  color:var(--white);
+  padding:3rem 1.25rem;
+}
+
+.stats-grid {
+  display:grid; grid-template-columns:repeat(2,1fr);
+  gap:1px;
+  background:rgba(255,255,255,.06);
+  border-radius:18px; overflow:hidden;
+  margin-top:2rem;
+}
+.stat-box {
+  background:rgba(9,23,16,.5);
+  padding:1.5rem 1.2rem;
+  text-align:center;
+}
+.stat-val {
+  font-family:'JetBrains Mono',monospace;
+  font-size:1.6rem; font-weight:700;
+  color:var(--sun); line-height:1;
+  margin-bottom:.3rem;
+}
+.stat-lbl {
+  font-size:.7rem; font-weight:600;
+  letter-spacing:.08em; text-transform:uppercase;
+  color:rgba(253,252,249,.4);
+}
+
+/* ═══════════════════════════════
+   SERTIFIKASI
+═══════════════════════════════ */
+.cert-section { background:var(--cream); }
+
+.cert-cards {
+  display:flex; flex-direction:column; gap:.75rem;
+  margin-top:2rem;
+}
+.cert-item {
+  background:var(--paper);
+  border:1px solid rgba(0,0,0,.07);
+  border-radius:14px;
+  padding:1.1rem 1.25rem;
+  display:flex; gap:1rem; align-items:flex-start;
+}
+.cert-item-icon {
+  width:40px; height:40px;
+  background:linear-gradient(135deg,rgba(196,125,14,.14),rgba(233,160,32,.07));
+  border:1px solid rgba(196,125,14,.2);
+  border-radius:10px;
+  display:flex; align-items:center; justify-content:center;
+  font-size:1.1rem; flex-shrink:0;
+}
+.cert-item-name {
+  font-size:.88rem; font-weight:700; color:var(--forest);
+  margin-bottom:.2rem;
+}
+.cert-item-desc {
+  font-size:.77rem; line-height:1.6; color:var(--mist);
+}
+
+/* ═══════════════════════════════
+   PASAR EKSPOR
+═══════════════════════════════ */
+.market-section { background:var(--deep); color:var(--white); }
+.market-section .s-title { color:var(--white); }
+.market-section .s-desc { color:rgba(253,252,249,.5); }
+
+.market-grid {
+  display:grid; grid-template-columns:1fr 1fr;
+  gap:.75rem; margin-top:2rem;
+}
+.market-card {
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:14px;
+  padding:1.25rem 1rem;
+  text-align:center;
+  transition:background .25s,border-color .25s;
+}
+.market-card:hover {
+  background:rgba(196,125,14,.1);
+  border-color:rgba(196,125,14,.35);
+}
+.market-flag { font-size:2rem; margin-bottom:.5rem; display:block; }
+.market-name {
+  font-size:.88rem; font-weight:700; color:var(--white);
+  margin-bottom:.25rem;
+}
+.market-use {
+  font-size:.72rem; color:rgba(253,252,249,.4);
+  line-height:1.5;
+}
+
+/* ═══════════════════════════════
+   KONTAK
+═══════════════════════════════ */
+.contact-section {
+  background:var(--paper);
+  padding-bottom:6rem;
+}
+
+.contact-cards {
+  display:flex; flex-direction:column; gap:.75rem;
+  margin-top:2rem;
+}
+.contact-item {
+  background:var(--cream);
+  border:1px solid rgba(0,0,0,.07);
+  border-radius:14px;
+  padding:1.1rem 1.25rem;
+  display:flex; align-items:center; gap:1rem;
+  text-decoration:none; color:inherit;
+  transition:border-color .2s,box-shadow .2s;
+}
+.contact-item:hover { border-color:rgba(196,125,14,.4); box-shadow:0 4px 16px rgba(0,0,0,.06); }
+.contact-ico {
+  width:40px; height:40px;
+  background:linear-gradient(135deg,rgba(196,125,14,.14),rgba(233,160,32,.07));
+  border:1px solid rgba(196,125,14,.2);
+  border-radius:10px;
+  display:flex; align-items:center; justify-content:center;
+  font-size:1.1rem; flex-shrink:0;
+}
+.contact-lbl {
+  font-size:.65rem; font-weight:700;
+  letter-spacing:.1em; text-transform:uppercase;
+  color:var(--gold); margin-bottom:.15rem;
+  font-family:'JetBrains Mono',monospace;
+}
+.contact-val { font-size:.88rem; font-weight:600; color:var(--forest); }
+
+/* ═══════════════════════════════
+   FLOATING BUTTONS
+═══════════════════════════════ */
+.wa-float {
+  position:fixed; bottom:1.5rem; right:1.25rem;
+  z-index:700;
+  background:linear-gradient(135deg,#25d366,#1eb655);
+  border-radius:100px;
+  padding:.7rem 1.1rem;
+  display:flex; align-items:center; gap:.45rem;
+  text-decoration:none;
+  box-shadow:0 6px 24px rgba(37,211,102,.4);
+  animation:float-bob 3s ease-in-out infinite;
+}
+.wa-float-icon { font-size:1.2rem; }
+.wa-float-text { font-size:.78rem; font-weight:700; color:#fff; }
+@keyframes float-bob { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-5px)} }
+
+/* ═══════════════════════════════
+   FOOTER
+═══════════════════════════════ */
+footer {
+  background:#040a06;
+  border-top:1px solid rgba(196,125,14,.14);
+  padding:2rem 1.25rem 1.5rem;
+  display:flex; flex-direction:column; gap:1rem;
+}
+.footer-brand {
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.05rem; font-weight:700;
+  color:rgba(253,252,249,.65);
+}
+.footer-links { display:flex; flex-wrap:wrap; gap:.6rem 1.1rem; list-style:none; }
+.footer-links a {
+  font-size:.76rem; text-decoration:none;
+  color:rgba(253,252,249,.3); transition:color .2s;
+}
+.footer-links a:hover { color:var(--gold); }
+.footer-copy {
+  font-size:.7rem; color:rgba(253,252,249,.22);
+  border-top:1px solid rgba(255,255,255,.04);
+  padding-top:1rem;
+}
+
+/* ═══════════════════════════════
+   REVEAL ANIMATION
+═══════════════════════════════ */
+.reveal {
+  opacity:0; transform:translateY(20px);
+  transition:opacity .6s ease, transform .6s ease;
+}
+.reveal.visible { opacity:1; transform:translateY(0); }
+
+/* ═══════════════════════════════
+   DESKTOP
+═══════════════════════════════ */
+@media(min-width:768px){
+  nav { padding:0 2.5rem; height:65px; }
+  .cp-section { padding:5rem 2.5rem; }
+  .cp-cover { padding:calc(65px + 3.5rem) 2.5rem 4rem; }
+
+  .vm-grid { grid-template-columns:1fr 1fr; }
+  .team-grid { grid-template-columns:1fr 1fr; }
+  .services-grid { grid-template-columns:repeat(4,1fr); }
+  .stats-grid { grid-template-columns:repeat(4,1fr); }
+  .market-grid { grid-template-columns:repeat(4,1fr); }
+  .legal-grid { grid-template-columns:1fr 1fr; }
+  .contact-cards { display:grid; grid-template-columns:1fr 1fr; }
+  .cert-cards { display:grid; grid-template-columns:1fr 1fr; }
+  .cover-meta { grid-template-columns:repeat(4,1fr); }
+}
+
+@media(min-width:1100px){
+  nav { padding:0 3.5rem; }
+  .cp-section { padding:5.5rem 3.5rem; }
+  .cp-cover { padding:calc(65px + 4rem) 3.5rem 4rem; }
+}
+
+/* ═══════════════════════════════
+   LANGUAGE SWITCHER (JS-driven)
+═══════════════════════════════ */
+[data-en] { /* shown when EN active */ }
+.lang-en [data-id] { display:none !important; }
+.lang-id [data-en] { display:none !important; }
+body { /* default is ID */ }
+
+/* ═══════════════════════════════
+   PRINT / PDF STYLES
+═══════════════════════════════ */
+@media print {
+  * { -webkit-print-color-adjust:exact !important; print-color-adjust:exact !important; }
+
+  body::after, .lang-toggle, .wa-float, nav, footer,
+  .nav-download-btn { display:none !important; }
+
+  body { background:#fff !important; font-size:11pt; }
+
+  .cp-cover {
+    min-height:0;
+    padding:2cm 2cm 1.5cm !important;
+    background:var(--deep) !important;
+    page-break-after:always;
+    display:flex !important;
+    flex-direction:column;
+    justify-content:flex-end;
+  }
+
+  .cover-blob, .cover-rings { display:none; }
+
+  .cp-section { padding:1.2cm 2cm !important; }
+
+  section, .cp-section { page-break-inside:avoid; }
+
+  .vm-grid,
+  .team-grid { grid-template-columns:1fr 1fr !important; }
+
+  .services-grid,
+  .stats-grid,
+  .market-grid { grid-template-columns:repeat(4,1fr) !important; }
+
+  .legal-grid,
+  .cert-cards { grid-template-columns:1fr 1fr !important; }
+
+  .contact-cards { display:grid !important; grid-template-columns:1fr 1fr !important; }
+
+  .reveal { opacity:1 !important; transform:none !important; }
+
+  h1, h2, h3 { page-break-after:avoid; }
+
+  .cover-title { font-size:42pt !important; }
+
+  /* Print header on each page */
+  .print-header {
+    display:flex !important;
+    align-items:center; gap:.5rem;
+    border-bottom:1pt solid rgba(196,125,14,.4);
+    padding-bottom:.3cm;
+    margin-bottom:.3cm;
+  }
+  .print-header-logo { font-size:9pt; font-weight:700; color:var(--forest); }
+
+  /* Force dark backgrounds to print */
+  .vm-section { background:var(--deep) !important; }
+  .market-section { background:var(--deep) !important; }
+  .stats-section { background:var(--forest) !important; }
+}
+
+/* hide print header on screen */
+.print-header { display:none; }
+</style>
+</head>
+<body class="lang-id">
+
+<!-- ══ NAV ══ -->
+<nav>
+  <a href="mustika-green-mobile.html" class="nav-logo">
+    <div class="nav-logo-mark">🌿</div>
+    <div class="nav-logo-text">
+      Mustika Green
+      <small>Indonesia</small>
+    </div>
+  </a>
+  <div class="nav-right">
+    <a href="mustika-green-mobile.html" class="nav-back">← Beranda</a>
+    <button class="nav-download-btn" onclick="window.print()">
+      ⬇ Download Compro
+    </button>
+  </div>
+</nav>
+
+<!-- ══ LANG TOGGLE ══ -->
+<div class="lang-toggle">
+  <button class="lang-btn active" id="btnID" onclick="setLang('id')">ID</button>
+  <button class="lang-btn" id="btnEN" onclick="setLang('en')">EN</button>
+</div>
+
+<!-- ══ FLOATING WA ══ -->
+<a href="https://wa.me/628XXXXXXXXXX" class="wa-float" target="_blank">
+  <span class="wa-float-icon">💬</span>
+  <span class="wa-float-text">WhatsApp</span>
+</a>
+
+<!-- ═══════════════════════════════════════
+     COVER
+════════════════════════════════════════ -->
+<div class="cp-cover">
+  <div class="cover-blob cover-blob-1"></div>
+  <div class="cover-blob cover-blob-2"></div>
+  <div class="cover-rings">
+    <div class="cover-ring"></div>
+    <div class="cover-ring"></div>
+    <div class="cover-ring"></div>
+  </div>
+
+  <div class="cover-eyebrow">
+    <span data-id>Company Profile · PT Mustika Green Indonesia · 2025</span>
+    <span data-en>Company Profile · PT Mustika Green Indonesia · 2025</span>
+  </div>
+
+  <h1 class="cover-title">
+    <span data-id>Eksportir UCO<br>Terpercaya<br><em>Indonesia</em></span>
+    <span data-en>Indonesia's Trusted<br>UCO<br><em>Exporter</em></span>
+  </h1>
+
+  <p class="cover-tagline">
+    <span data-id>Mengubah minyak jelantah menjadi bahan bakar masa depan — menghubungkan pengepul lokal Indonesia ke pasar biodiesel internasional.</span>
+    <span data-en>Transforming used cooking oil into tomorrow's fuel — connecting Indonesian local collectors to the global biodiesel market.</span>
+  </p>
+
+  <div class="cover-meta">
+    <div class="cover-meta-item">
+      <div class="cover-meta-label"><span data-id>Didirikan</span><span data-en>Founded</span></div>
+      <div class="cover-meta-val">2023</div>
+    </div>
+    <div class="cover-meta-item">
+      <div class="cover-meta-label"><span data-id>Domisili</span><span data-en>Location</span></div>
+      <div class="cover-meta-val">Cisoka, Tangerang</div>
+    </div>
+    <div class="cover-meta-item">
+      <div class="cover-meta-label"><span data-id>Sertifikasi</span><span data-en>Certification</span></div>
+      <div class="cover-meta-val">ISCC Certified</div>
+    </div>
+    <div class="cover-meta-item">
+      <div class="cover-meta-label"><span data-id>Pasar</span><span data-en>Markets</span></div>
+      <div class="cover-meta-val">🇪🇺 🇨🇳 🇰🇷 🇯🇵</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     TENTANG KAMI / ABOUT US
+════════════════════════════════════════ -->
+<div class="cp-section about-section">
+  <div class="print-header">
+    <span class="print-header-logo">🌿 PT Mustika Green Indonesia – Company Profile 2025</span>
+  </div>
+
+  <span class="tag">
+    <span data-id>// Tentang Kami</span>
+    <span data-en>// About Us</span>
+  </span>
+
+  <h2 class="s-title reveal">
+    <span data-id>Siapa Kami</span>
+    <span data-en>Who We Are</span>
+  </h2>
+
+  <div class="about-body reveal">
+    <span data-id>
+      <strong>PT Mustika Green Indonesia</strong> adalah perusahaan eksportir minyak jelantah (Used Cooking Oil / UCO) yang berpusat di Cisoka, Kabupaten Tangerang, Banten. Berdiri sejak 2023, kami hadir untuk menjawab peluang besar dari meningkatnya permintaan global terhadap bahan baku biodiesel dan renewable fuel berbasis limbah minyak nabati.
+    </span>
+    <span data-en>
+      <strong>PT Mustika Green Indonesia</strong> is a used cooking oil (UCO) exporter headquartered in Cisoka, Tangerang Regency, Banten. Established in 2023, we were founded to address the growing global demand for biodiesel and renewable fuel feedstock derived from waste vegetable oil.
+    </span>
+  </div>
+
+  <div class="about-pull reveal">
+    <p>
+      <span data-id>"Kami bukan sekadar eksportir — kami adalah jembatan antara ekonomi sirkular Indonesia dan pasar energi hijau dunia."</span>
+      <span data-en>"We are more than just an exporter — we are the bridge between Indonesia's circular economy and the world's green energy market."</span>
+    </p>
+    <small>
+      <span data-id>— Filosofi Perusahaan</span>
+      <span data-en>— Company Philosophy</span>
+    </small>
+  </div>
+
+  <div class="about-body reveal">
+    <span data-id>
+      Kami beroperasi di puncak rantai pasok UCO Indonesia — menerima pasokan minyak jelantah dari jaringan pengepul terverifikasi di seluruh Jabodetabek, memproses dan menyortir sesuai standar kualitas internasional, lalu mengekspornya ke pembeli di Eropa, China, Korea Selatan, dan Jepang. Setiap liter jelantah yang kami tangani adalah kontribusi nyata terhadap pengurangan emisi karbon dan pertumbuhan ekonomi sirkular Indonesia.
+    </span>
+    <span data-en>
+      We operate at the top of Indonesia's UCO supply chain — sourcing used cooking oil from verified collector networks across Greater Jakarta, processing and sorting to international quality standards, then exporting to buyers in Europe, China, South Korea, and Japan. Every liter of cooking oil we handle is a real contribution to reducing carbon emissions and growing Indonesia's circular economy.
+    </span>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ═══════════════════════════════════════
+     VISI MISI
+════════════════════════════════════════ -->
+<div class="cp-section vm-section">
+  <span class="tag">
+    <span data-id>// Visi & Misi</span>
+    <span data-en>// Vision & Mission</span>
+  </span>
+  <h2 class="s-title reveal">
+    <span data-id>Arah & Tujuan</span>
+    <span data-en>Direction & Purpose</span>
+  </h2>
+
+  <div class="vm-grid">
+    <div class="vm-card vm-card-visi reveal">
+      <span class="vm-card-icon">🔭</span>
+      <div class="vm-card-label">
+        <span data-id>Visi</span><span data-en>Vision</span>
+      </div>
+      <div class="vm-card-text">
+        <span data-id>Menjadi eksportir UCO terkemuka di Asia Tenggara yang mendorong transisi energi bersih melalui pengelolaan limbah minyak yang bertanggung jawab dan berkelanjutan.</span>
+        <span data-en>To become the leading UCO exporter in Southeast Asia, driving the clean energy transition through responsible and sustainable cooking oil waste management.</span>
+      </div>
+    </div>
+
+    <div class="vm-card vm-card-misi reveal">
+      <span class="vm-card-icon">🎯</span>
+      <div class="vm-card-label">
+        <span data-id>Misi</span><span data-en>Mission</span>
+      </div>
+      <ul class="misi-list">
+        <li><span data-id>Membangun ekosistem pengumpulan UCO yang terstruktur dan terverifikasi di Indonesia</span><span data-en>Build a structured and verified UCO collection ecosystem across Indonesia</span></li>
+        <li><span data-id>Mengekspor UCO berkualitas tinggi sesuai standar ISCC dan regulasi internasional</span><span data-en>Export high-quality UCO compliant with ISCC standards and international regulations</span></li>
+        <li><span data-id>Memberdayakan pengepul lokal dengan harga adil dan pembayaran transparan</span><span data-en>Empower local collectors with fair pricing and transparent payment</span></li>
+        <li><span data-id>Berkontribusi pada target pengurangan emisi karbon Indonesia</span><span data-en>Contribute to Indonesia's carbon emission reduction targets</span></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ═══════════════════════════════════════
+     LEGALITAS
+════════════════════════════════════════ -->
+<div class="cp-section legal-section">
+  <span class="tag">
+    <span data-id>// Legalitas</span>
+    <span data-en>// Legal</span>
+  </span>
+  <h2 class="s-title reveal">
+    <span data-id>Identitas & Legalitas</span>
+    <span data-en>Identity & Legality</span>
+  </h2>
+  <p class="s-desc reveal">
+    <span data-id>Perusahaan kami terdaftar resmi dan beroperasi sesuai peraturan yang berlaku di Indonesia.</span>
+    <span data-en>Our company is officially registered and operates in full compliance with Indonesian regulations.</span>
+  </p>
+
+  <div class="legal-grid">
+    <div class="legal-item reveal">
+      <div class="legal-icon">🏢</div>
+      <div>
+        <div class="legal-label"><span data-id>Nama Perusahaan</span><span data-en>Company Name</span></div>
+        <div class="legal-val">PT Mustika Green Indonesia</div>
+      </div>
+    </div>
+    <div class="legal-item reveal">
+      <div class="legal-icon">📋</div>
+      <div>
+        <div class="legal-label">NIB</div>
+        <div class="legal-val">[Nomor NIB]</div>
+      </div>
+    </div>
+    <div class="legal-item reveal">
+      <div class="legal-icon">📄</div>
+      <div>
+        <div class="legal-label">NPWP</div>
+        <div class="legal-val">[Nomor NPWP]</div>
+      </div>
+    </div>
+    <div class="legal-item reveal">
+      <div class="legal-icon">🏛</div>
+      <div>
+        <div class="legal-label">SIUP / TDP</div>
+        <div class="legal-val">[Nomor SIUP]</div>
+      </div>
+    </div>
+    <div class="legal-item reveal">
+      <div class="legal-icon">📍</div>
+      <div>
+        <div class="legal-label"><span data-id>Alamat</span><span data-en>Address</span></div>
+        <div class="legal-val">Desa Cisoka, Kec. Cisoka, Kab. Tangerang, Banten</div>
+      </div>
+    </div>
+    <div class="legal-item reveal">
+      <div class="legal-icon">📅</div>
+      <div>
+        <div class="legal-label"><span data-id>Tahun Berdiri</span><span data-en>Founded</span></div>
+        <div class="legal-val">2023</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ═══════════════════════════════════════
+     TIM
+════════════════════════════════════════ -->
+<div class="cp-section team-section">
+  <span class="tag">
+    <span data-id>// Tim Kami</span>
+    <span data-en>// Our Team</span>
+  </span>
+  <h2 class="s-title reveal">
+    <span data-id>Orang-Orang di Baliknya</span>
+    <span data-en>The People Behind It</span>
+  </h2>
+
+  <div class="team-grid">
+    <div class="team-card reveal">
+      <div class="team-avatar">👤</div>
+      <div>
+        <div class="team-name">[Nama Direktur]</div>
+        <div class="team-role"><span data-id>Direktur Utama</span><span data-en>Managing Director</span></div>
+        <div class="team-desc">
+          <span data-id>Memimpin strategi bisnis dan operasional ekspor. Berpengalaman di industri komoditas dan perdagangan internasional.</span>
+          <span data-en>Leads business strategy and export operations. Experienced in commodities and international trade.</span>
+        </div>
+      </div>
+    </div>
+    <div class="team-card reveal">
+      <div class="team-avatar">👤</div>
+      <div>
+        <div class="team-name">[Nama Ops Manager]</div>
+        <div class="team-role"><span data-id>Manajer Operasional</span><span data-en>Operations Manager</span></div>
+        <div class="team-desc">
+          <span data-id>Bertanggung jawab atas QC, logistik, dan koordinasi jaringan pengepul di Jabodetabek.</span>
+          <span data-en>Responsible for QC, logistics, and collector network coordination across Greater Jakarta.</span>
+        </div>
+      </div>
+    </div>
+    <div class="team-card reveal">
+      <div class="team-avatar">👤</div>
+      <div>
+        <div class="team-name">[Nama Finance]</div>
+        <div class="team-role"><span data-id>Manajer Keuangan</span><span data-en>Finance Manager</span></div>
+        <div class="team-desc">
+          <span data-id>Mengelola keuangan perusahaan, pembayaran mitra, dan pelaporan ekspor.</span>
+          <span data-en>Manages company finances, partner payments, and export reporting.</span>
+        </div>
+      </div>
+    </div>
+    <div class="team-card reveal">
+      <div class="team-avatar">👤</div>
+      <div>
+        <div class="team-name">[Nama BD]</div>
+        <div class="team-role"><span data-id>Business Development</span><span data-en>Business Development</span></div>
+        <div class="team-desc">
+          <span data-id>Mengelola hubungan dengan pembeli internasional dan pengembangan kemitraan baru.</span>
+          <span data-en>Manages international buyer relationships and new partnership development.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ═══════════════════════════════════════
+     LAYANAN
+════════════════════════════════════════ -->
+<div class="cp-section services-section">
+  <span class="tag">
+    <span data-id>// Layanan Kami</span>
+    <span data-en>// Our Services</span>
+  </span>
+  <h2 class="s-title reveal">
+    <span data-id>Apa Yang Kami Tawarkan</span>
+    <span data-en>What We Offer</span>
+  </h2>
+
+  <div class="services-grid">
+    <div class="svc-card reveal">
+      <span class="svc-icon">🏠</span>
+      <div class="svc-title"><span data-id>Penjualan Lokal</span><span data-en>Domestic Sales</span></div>
+      <p class="svc-desc"><span data-id>UCO tersortasi untuk industri lokal dengan kontrak terstruktur.</span><span data-en>Sorted UCO for local industry with structured contracts.</span></p>
+    </div>
+    <div class="svc-card reveal">
+      <span class="svc-icon">✈️</span>
+      <div class="svc-title"><span data-id>Ekspor Internasional</span><span data-en>International Export</span></div>
+      <p class="svc-desc"><span data-id>Ekspor UCO ke pasar Eropa & Asia dengan dokumen penuh.</span><span data-en>UCO export to European & Asian markets with full documentation.</span></p>
+    </div>
+    <div class="svc-card reveal">
+      <span class="svc-icon">🔬</span>
+      <div class="svc-title"><span data-id>QC & Sortasi</span><span data-en>QC & Sorting</span></div>
+      <p class="svc-desc"><span data-id>Uji kualitas FFA, moisture, dan filtrasi multi-tahap.</span><span data-en>FFA & moisture quality testing, multi-stage filtration.</span></p>
+    </div>
+    <div class="svc-card reveal">
+      <span class="svc-icon">🤝</span>
+      <div class="svc-title"><span data-id>Kemitraan Pengepul</span><span data-en>Collector Partnership</span></div>
+      <p class="svc-desc"><span data-id>Program mitra pengepul dengan harga kompetitif & pembayaran cepat.</span><span data-en>Collector partner program with competitive pricing & fast payment.</span></p>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ═══════════════════════════════════════
+     STATS
+════════════════════════════════════════ -->
+<div class="stats-section cp-section">
+  <span class="tag">
+    <span data-id>// Angka Kami</span>
+    <span data-en>// Our Numbers</span>
+  </span>
+  <h2 class="s-title reveal" style="color:var(--white)">
+    <span data-id>Dalam Angka</span>
+    <span data-en>By the Numbers</span>
+  </h2>
+
+  <div class="stats-grid">
+    <div class="stat-box reveal">
+      <div class="stat-val">4+</div>
+      <div class="stat-lbl"><span data-id>Pasar Ekspor</span><span data-en>Export Markets</span></div>
+    </div>
+    <div class="stat-box reveal">
+      <div class="stat-val">ISCC</div>
+      <div class="stat-lbl"><span data-id>Bersertifikasi</span><span data-en>Certified</span></div>
+    </div>
+    <div class="stat-box reveal">
+      <div class="stat-val">B2B</div>
+      <div class="stat-lbl"><span data-id>Ekpsor Langsung</span><span data-en>Direct Export</span></div>
+    </div>
+    <div class="stat-box reveal">
+      <div class="stat-val">100%</div>
+      <div class="stat-lbl"><span data-id>Berbasis Limbah</span><span data-en>Waste-Based</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ═══════════════════════════════════════
+     SERTIFIKASI
+════════════════════════════════════════ -->
+<div class="cp-section cert-section">
+  <span class="tag">
+    <span data-id>// Sertifikasi</span>
+    <span data-en>// Certifications</span>
+  </span>
+  <h2 class="s-title reveal">
+    <span data-id>Standar & Sertifikasi</span>
+    <span data-en>Standards & Certifications</span>
+  </h2>
+
+  <div class="cert-cards">
+    <div class="cert-item reveal">
+      <div class="cert-item-icon">🌿</div>
+      <div>
+        <div class="cert-item-name">ISCC (International Sustainability & Carbon Certification)</div>
+        <p class="cert-item-desc"><span data-id>Sertifikasi keberlanjutan yang diakui Uni Eropa dan wajib untuk ekspor UCO ke pasar Eropa sebagai feedstock biodiesel.</span><span data-en>Sustainability certification recognized by the EU and required for UCO exports to European markets as biodiesel feedstock.</span></p>
+      </div>
+    </div>
+    <div class="cert-item reveal">
+      <div class="cert-item-icon">⚡</div>
+      <div>
+        <div class="cert-item-name">RED II Compliant</div>
+        <p class="cert-item-desc"><span data-id>Memenuhi persyaratan Renewable Energy Directive II Uni Eropa untuk bahan bakar terbarukan berbasis limbah.</span><span data-en>Compliant with EU Renewable Energy Directive II requirements for waste-based renewable fuels.</span></p>
+      </div>
+    </div>
+    <div class="cert-item reveal">
+      <div class="cert-item-icon">🛢</div>
+      <div>
+        <div class="cert-item-name">HVO / SAF Feedstock</div>
+        <p class="cert-item-desc"><span data-id>UCO kami memenuhi spesifikasi sebagai feedstock untuk Hydrotreated Vegetable Oil dan Sustainable Aviation Fuel.</span><span data-en>Our UCO meets specifications as feedstock for Hydrotreated Vegetable Oil and Sustainable Aviation Fuel.</span></p>
+      </div>
+    </div>
+    <div class="cert-item reveal">
+      <div class="cert-item-icon">🏭</div>
+      <div>
+        <div class="cert-item-name">Biodiesel B100</div>
+        <p class="cert-item-desc"><span data-id>Memenuhi standar kualitas untuk produksi biodiesel B100 di pasar Asia Timur.</span><span data-en>Meets quality standards for B100 biodiesel production in East Asian markets.</span></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ═══════════════════════════════════════
+     PASAR EKSPOR
+════════════════════════════════════════ -->
+<div class="cp-section market-section">
+  <span class="tag">
+    <span data-id>// Pasar Global</span>
+    <span data-en>// Global Markets</span>
+  </span>
+  <h2 class="s-title reveal">
+    <span data-id>Pasar Ekspor Kami</span>
+    <span data-en>Our Export Markets</span>
+  </h2>
+  <p class="s-desc reveal">
+    <span data-id>UCO dari Indonesia memiliki permintaan tinggi di pasar internasional sebagai bahan baku energi terbarukan.</span>
+    <span data-en>Indonesian UCO is in high demand on international markets as a renewable energy feedstock.</span>
+  </p>
+
+  <div class="market-grid">
+    <div class="market-card reveal">
+      <span class="market-flag">🇪🇺</span>
+      <div class="market-name"><span data-id>Eropa</span><span data-en>Europe</span></div>
+      <div class="market-use">HVO · SAF · Biodiesel</div>
+    </div>
+    <div class="market-card reveal">
+      <span class="market-flag">🇨🇳</span>
+      <div class="market-name"><span data-id>Cina</span><span data-en>China</span></div>
+      <div class="market-use">Biodiesel B100</div>
+    </div>
+    <div class="market-card reveal">
+      <span class="market-flag">🇰🇷</span>
+      <div class="market-name"><span data-id>Korea Selatan</span><span data-en>South Korea</span></div>
+      <div class="market-use">Renewable Fuel</div>
+    </div>
+    <div class="market-card reveal">
+      <span class="market-flag">🇯🇵</span>
+      <div class="market-name"><span data-id>Jepang</span><span data-en>Japan</span></div>
+      <div class="market-use">SAF · HVO</div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ═══════════════════════════════════════
+     KONTAK
+════════════════════════════════════════ -->
+<div class="cp-section contact-section">
+  <span class="tag">
+    <span data-id>// Hubungi Kami</span>
+    <span data-en>// Contact Us</span>
+  </span>
+  <h2 class="s-title reveal">
+    <span data-id>Mulai Kemitraan</span>
+    <span data-en>Start a Partnership</span>
+  </h2>
+  <p class="s-desc reveal">
+    <span data-id>Kami siap berdiskusi dengan pengepul, pembeli internasional, dan mitra bisnis lainnya.</span>
+    <span data-en>We are ready to discuss with collectors, international buyers, and other business partners.</span>
+  </p>
+
+  <div class="contact-cards">
+    <a href="https://wa.me/628XXXXXXXXXX" class="contact-item reveal" target="_blank">
+      <div class="contact-ico">💬</div>
+      <div>
+        <div class="contact-lbl">WhatsApp</div>
+        <div class="contact-val">+62 8XX-XXXX-XXXX</div>
+      </div>
+    </a>
+    <a href="mailto:info@mustikagreen.com" class="contact-item reveal">
+      <div class="contact-ico">📧</div>
+      <div>
+        <div class="contact-lbl">Email</div>
+        <div class="contact-val">info@mustikagreen.com</div>
+      </div>
+    </a>
+    <a href="#" class="contact-item reveal">
+      <div class="contact-ico">📍</div>
+      <div>
+        <div class="contact-lbl"><span data-id>Alamat</span><span data-en>Address</span></div>
+        <div class="contact-val">Desa Cisoka, Kec. Cisoka, Kab. Tangerang</div>
+      </div>
+    </a>
+    <a href="#" class="contact-item reveal">
+      <div class="contact-ico">🌐</div>
+      <div>
+        <div class="contact-lbl">Website</div>
+        <div class="contact-val">mustikagreen.com</div>
+      </div>
+    </a>
+  </div>
+</div>
+
+<!-- ══ FOOTER ══ -->
+<footer>
+  <div class="footer-brand">PT Mustika Green Indonesia</div>
+  <ul class="footer-links">
+    <li><a href="#">Beranda</a></li>
+    <li><a href="#">Layanan</a></li>
+    <li><a href="#">Kontak</a></li>
+  </ul>
+  <div class="footer-copy">© 2025 PT Mustika Green Indonesia. UCO Exporter · Cisoka, Tangerang. All rights reserved.</div>
+</footer>
+
+<script>
+/* ─── Language Switcher ─── */
+function setLang(lang) {
+  document.body.classList.remove('lang-id','lang-en');
+  document.body.classList.add('lang-' + lang);
+  document.getElementById('btnID').classList.toggle('active', lang==='id');
+  document.getElementById('btnEN').classList.toggle('active', lang==='en');
+  document.documentElement.lang = lang==='id' ? 'id' : 'en';
+}
+
+/* ─── Scroll Reveal ─── */
+const reveals = document.querySelectorAll('.reveal');
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach((entry, i) => {
+    if(entry.isIntersecting){
+      setTimeout(() => {
+        entry.target.classList.add('visible');
+      }, (i % 5) * 70);
+      obs.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1 });
+reveals.forEach(el => obs.observe(el));
+
+/* ─── Nav shadow on scroll ─── */
+window.addEventListener('scroll', () => {
+  document.querySelector('nav').style.boxShadow =
+    window.scrollY > 30 ? '0 4px 24px rgba(0,0,0,.4)' : 'none';
+});
+</script>
+</body>
+</html>

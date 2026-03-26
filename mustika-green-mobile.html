@@ -1,0 +1,1337 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PT Mustika Green Indonesia – Eksportir Minyak Jelantah</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Syne:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --deep: #091710;
+  --forest: #122b1d;
+  --mid: #1e4830;
+  --leaf: #2f6e49;
+  --gold: #c47d0e;
+  --sun: #e9a020;
+  --pale: #f5cb6a;
+  --cream: #f4ede0;
+  --paper: #faf7f1;
+  --mist: #8b9b8f;
+  --ink: #111c15;
+  --white: #fdfcf9;
+  --r: 16px;
+}
+
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; font-size:16px; }
+
+body {
+  font-family: 'Syne', sans-serif;
+  background: var(--paper);
+  color: var(--ink);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ─── GRAIN OVERLAY ─── */
+body::after {
+  content:'';
+  position:fixed; inset:0; z-index:9999;
+  pointer-events:none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)' opacity='0.035'/%3E%3C/svg%3E");
+  opacity:.6;
+}
+
+/* ─── SCROLLBAR ─── */
+::-webkit-scrollbar { width:4px; }
+::-webkit-scrollbar-track { background: var(--deep); }
+::-webkit-scrollbar-thumb { background: var(--gold); border-radius:2px; }
+
+/* ════════════════════════════
+   NAV
+════════════════════════════ */
+nav {
+  position:fixed; top:0; left:0; right:0; z-index:800;
+  background: rgba(9,23,16,.94);
+  backdrop-filter: blur(16px) saturate(180%);
+  border-bottom: 1px solid rgba(196,125,14,.18);
+  padding: 0 1.25rem;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-logo {
+  display:flex; align-items:center; gap:.6rem;
+  text-decoration:none;
+}
+
+.nav-logo-mark {
+  width:34px; height:34px;
+  background: linear-gradient(135deg, var(--gold), var(--sun));
+  border-radius:9px;
+  display:flex; align-items:center; justify-content:center;
+  font-size:1.1rem;
+  flex-shrink:0;
+}
+
+.nav-logo-text {
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.1rem;
+  font-weight:700;
+  color: var(--white);
+  line-height:1.1;
+}
+.nav-logo-text small {
+  display:block;
+  font-family:'Syne',sans-serif;
+  font-size:.52rem;
+  font-weight:500;
+  color: var(--sun);
+  letter-spacing:.15em;
+  text-transform:uppercase;
+}
+
+/* Hamburger */
+.nav-burger {
+  width:40px; height:40px;
+  border:none; background:none; cursor:pointer;
+  display:flex; flex-direction:column; align-items:flex-end;
+  justify-content:center; gap:5px; padding:0;
+}
+.nav-burger span {
+  display:block; height:2px; background:var(--white);
+  border-radius:2px; transition: all .3s ease;
+}
+.nav-burger span:nth-child(1) { width:24px; }
+.nav-burger span:nth-child(2) { width:16px; }
+.nav-burger span:nth-child(3) { width:20px; }
+
+.nav-burger.open span:nth-child(1) { transform:rotate(45deg) translate(5px,5px); width:22px; }
+.nav-burger.open span:nth-child(2) { opacity:0; transform:scaleX(0); }
+.nav-burger.open span:nth-child(3) { transform:rotate(-45deg) translate(5px,-5px); width:22px; }
+
+/* Mobile Menu Drawer */
+.nav-drawer {
+  position:fixed; top:60px; left:0; right:0; z-index:799;
+  background: rgba(9,23,16,.98);
+  backdrop-filter:blur(20px);
+  padding:1.5rem 1.25rem 2rem;
+  transform:translateY(-110%);
+  transition:transform .35s cubic-bezier(.16,1,.3,1);
+  border-bottom:1px solid rgba(196,125,14,.2);
+}
+.nav-drawer.open { transform:translateY(0); }
+
+.nav-drawer-links {
+  list-style:none;
+  display:flex; flex-direction:column; gap:0;
+}
+.nav-drawer-links li { border-bottom:1px solid rgba(255,255,255,.06); }
+.nav-drawer-links a {
+  display:block; padding:1rem 0;
+  text-decoration:none;
+  font-size:1rem; font-weight:600;
+  color:rgba(253,252,249,.7);
+  letter-spacing:.03em;
+  transition:color .2s;
+}
+.nav-drawer-links a:hover { color:var(--sun); }
+
+.nav-drawer-cta {
+  display:block;
+  margin-top:1.25rem;
+  background:linear-gradient(135deg,var(--gold),var(--sun));
+  color:var(--deep) !important;
+  font-weight:700 !important;
+  text-align:center;
+  padding:.85rem;
+  border-radius:100px;
+  font-size:.9rem !important;
+}
+
+/* Desktop nav links (hidden on mobile) */
+.nav-links-desktop { display:none; }
+
+/* ════════════════════════════
+   HERO
+════════════════════════════ */
+#hero {
+  min-height:100svh;
+  background: var(--deep);
+  display:flex; flex-direction:column;
+  padding: calc(60px + 2.5rem) 1.25rem 3rem;
+  position:relative; overflow:hidden;
+}
+
+.hero-bg {
+  position:absolute; inset:0; pointer-events:none; z-index:0;
+}
+
+.hero-blob {
+  position:absolute;
+  border-radius:50%;
+  filter:blur(80px);
+  opacity:.35;
+}
+.hero-blob-1 {
+  width:340px; height:340px;
+  background:radial-gradient(circle, #2f6e49 0%, transparent 70%);
+  top:-80px; right:-80px;
+}
+.hero-blob-2 {
+  width:260px; height:260px;
+  background:radial-gradient(circle, rgba(196,125,14,.6) 0%, transparent 70%);
+  bottom:10%; left:-60px;
+}
+
+.hero-rings {
+  position:absolute; right:-120px; top:50%; transform:translateY(-50%);
+}
+.hero-ring {
+  position:absolute; border-radius:50%;
+  border:1px solid rgba(196,125,14,.12);
+  transform:translate(-50%,-50%);
+}
+.hero-ring:nth-child(1){width:280px;height:280px;}
+.hero-ring:nth-child(2){width:420px;height:420px;}
+.hero-ring:nth-child(3){width:560px;height:560px;}
+
+/* Oil drop animation */
+.hero-drop-wrap {
+  position:relative; z-index:2;
+  display:flex; align-items:center; justify-content:center;
+  margin-bottom:2.5rem;
+  height:180px;
+}
+.hero-drop-orbit {
+  position:absolute; border-radius:50%;
+  border:1px dashed rgba(196,125,14,.3);
+  animation:orbit-spin 18s linear infinite;
+}
+.hero-drop-orbit:nth-child(1){width:160px;height:160px;}
+.hero-drop-orbit:nth-child(2){width:220px;height:220px;animation-duration:28s;animation-direction:reverse;}
+
+.orbit-dot {
+  position:absolute; border-radius:50%;
+  width:8px;height:8px;
+  background:var(--sun);
+  box-shadow:0 0 10px var(--sun);
+}
+.hero-drop-orbit:nth-child(1) .orbit-dot{top:-4px;left:50%;transform:translateX(-50%);}
+.hero-drop-orbit:nth-child(2) .orbit-dot{bottom:-4px;right:22%;}
+
+@keyframes orbit-spin{from{transform:rotate(0)}to{transform:rotate(360deg)}}
+
+.hero-drop-core {
+  width:100px;height:100px;
+  background:radial-gradient(circle at 35% 35%, rgba(240,165,0,.95), rgba(130,65,0,.85));
+  border-radius:40% 60% 70% 30%/50% 40% 60% 50%;
+  animation:morph-drop 6s ease-in-out infinite;
+  box-shadow:0 0 60px rgba(196,125,14,.55), inset 0 0 30px rgba(255,200,80,.25);
+  position:relative; z-index:2;
+}
+@keyframes morph-drop{
+  0%,100%{border-radius:40% 60% 70% 30%/50% 40% 60% 50%;}
+  33%{border-radius:60% 40% 30% 70%/40% 60% 50% 50%;}
+  66%{border-radius:30% 70% 50% 50%/60% 30% 70% 40%;}
+}
+
+/* Hero text */
+.hero-content { position:relative; z-index:2; }
+
+.hero-badge {
+  display:inline-flex; align-items:center; gap:.45rem;
+  background:rgba(196,125,14,.14);
+  border:1px solid rgba(196,125,14,.38);
+  color:var(--pale);
+  font-size:.68rem; font-weight:700;
+  letter-spacing:.16em; text-transform:uppercase;
+  padding:.4rem .9rem; border-radius:100px;
+  margin-bottom:1.4rem;
+}
+.hero-badge-dot {
+  width:5px;height:5px;border-radius:50%;
+  background:var(--sun);
+  animation:blink 2s ease infinite;
+}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+
+.hero-title {
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(2.8rem,10vw,4.2rem);
+  font-weight:700;
+  color:var(--white);
+  line-height:1.02;
+  letter-spacing:-.01em;
+  margin-bottom:1.2rem;
+}
+.hero-title em {
+  font-style:italic;
+  background:linear-gradient(90deg,var(--gold),var(--sun),var(--pale));
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+}
+
+.hero-desc {
+  font-size:.925rem; line-height:1.8;
+  color:rgba(253,252,249,.58);
+  margin-bottom:2rem;
+}
+
+.hero-btns {
+  display:flex; flex-direction:column; gap:.75rem;
+  margin-bottom:2.5rem;
+}
+
+.btn-primary {
+  display:flex; align-items:center; justify-content:center; gap:.5rem;
+  background:linear-gradient(135deg,var(--gold),var(--sun));
+  color:var(--deep);
+  font-weight:700; font-size:.9rem;
+  padding:1rem 1.5rem;
+  border-radius:100px;
+  text-decoration:none;
+  box-shadow:0 6px 24px rgba(196,125,14,.4);
+  transition:transform .2s,box-shadow .2s;
+  width:100%;
+}
+.btn-primary:active{transform:scale(.97);}
+
+.btn-outline {
+  display:flex; align-items:center; justify-content:center; gap:.5rem;
+  border:1.5px solid rgba(253,252,249,.2);
+  color:rgba(253,252,249,.8);
+  font-weight:500; font-size:.9rem;
+  padding:1rem 1.5rem;
+  border-radius:100px;
+  text-decoration:none;
+  transition:border-color .2s,background .2s;
+  width:100%;
+}
+.btn-outline:active{background:rgba(196,125,14,.1);border-color:var(--gold);}
+
+/* Stats */
+.hero-stats {
+  display:grid; grid-template-columns:repeat(3,1fr);
+  gap:.5rem;
+  padding-top:2rem;
+  border-top:1px solid rgba(253,252,249,.1);
+  margin-bottom:1.5rem;
+}
+.stat-item { text-align:center; }
+.stat-val {
+  font-family:'JetBrains Mono',monospace;
+  font-size:1.35rem; font-weight:700;
+  color:var(--sun);
+  line-height:1;
+}
+.stat-lbl {
+  font-size:.62rem; font-weight:500;
+  color:rgba(253,252,249,.38);
+  letter-spacing:.07em;
+  text-transform:uppercase;
+  margin-top:.25rem;
+}
+
+.hero-location {
+  display:flex; align-items:center; gap:.5rem;
+  background:rgba(196,125,14,.08);
+  border:1px solid rgba(196,125,14,.2);
+  border-radius:10px;
+  padding:.7rem 1rem;
+  font-size:.78rem;
+  color:rgba(253,252,249,.5);
+}
+.hero-location-icon { color:var(--sun); font-size:1rem; }
+
+/* ════════════════════════════
+   SECTION COMMONS
+════════════════════════════ */
+section { padding:4rem 1.25rem; }
+
+.tag {
+  display:inline-block;
+  font-family:'JetBrains Mono',monospace;
+  font-size:.62rem; font-weight:700;
+  letter-spacing:.2em; text-transform:uppercase;
+  color:var(--gold);
+  margin-bottom:.8rem;
+}
+
+.s-title {
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(1.9rem,7vw,2.8rem);
+  font-weight:700; line-height:1.1;
+  margin-bottom:1rem;
+}
+
+.s-desc {
+  font-size:.9rem; line-height:1.85;
+  color:var(--mist);
+}
+
+/* ════════════════════════════
+   ALUR EKOSISTEM
+════════════════════════════ */
+#alur {
+  background:var(--deep);
+  color:var(--white);
+  padding-bottom:5rem;
+  position:relative; overflow:hidden;
+}
+#alur::before {
+  content:'';
+  position:absolute; inset:0; pointer-events:none;
+  background:radial-gradient(ellipse at 50% 0%, rgba(47,110,73,.3) 0%, transparent 60%);
+}
+
+#alur .s-title { color:var(--white); }
+#alur .s-desc { color:rgba(253,252,249,.5); }
+
+.alur-header { text-align:center; margin-bottom:3rem; position:relative; z-index:2; }
+
+/* Vertical flow on mobile */
+.flow-track {
+  position:relative; z-index:2;
+  display:flex; flex-direction:column; gap:0;
+}
+
+.flow-node {
+  position:relative;
+  padding-left:3.5rem;
+  padding-bottom:2rem;
+}
+
+/* Vertical line connecting nodes */
+.flow-node:not(:last-child)::before {
+  content:'';
+  position:absolute;
+  left:1.1rem; top:2.5rem; bottom:0;
+  width:2px;
+  background:linear-gradient(180deg,var(--gold),rgba(196,125,14,.15));
+}
+
+.flow-node-bullet {
+  position:absolute;
+  left:0; top:.15rem;
+  width:2.2rem; height:2.2rem;
+  border-radius:50%;
+  background:var(--forest);
+  border:2px solid rgba(196,125,14,.35);
+  display:flex; align-items:center; justify-content:center;
+  font-size:1rem;
+  z-index:2;
+}
+
+.flow-node-label {
+  font-family:'JetBrains Mono',monospace;
+  font-size:.6rem; letter-spacing:.2em;
+  text-transform:uppercase;
+  color:var(--gold);
+  margin-bottom:.7rem;
+}
+
+.flow-node-cards {
+  display:grid; grid-template-columns:1fr 1fr;
+  gap:.5rem;
+}
+
+.flow-card {
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.07);
+  border-radius:10px;
+  padding:.6rem .8rem;
+  font-size:.78rem; font-weight:500;
+  color:rgba(253,252,249,.75);
+  display:flex; align-items:center; gap:.45rem;
+  transition:background .2s,border-color .2s;
+}
+.flow-card:hover {
+  background:rgba(196,125,14,.12);
+  border-color:rgba(196,125,14,.4);
+  color:var(--white);
+}
+.flow-card-ico { font-size:.9rem; flex-shrink:0; }
+
+/* Center / Mustika node - hero card */
+.flow-node-hero {
+  background:linear-gradient(135deg,var(--mid),var(--forest));
+  border:2px solid var(--gold);
+  border-radius:18px;
+  padding:1.5rem;
+  text-align:center;
+  box-shadow:0 0 50px rgba(196,125,14,.2);
+  margin-top:.5rem;
+}
+
+.fnh-logo {
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.4rem; font-weight:700;
+  color:var(--white);
+}
+.fnh-sub {
+  font-size:.62rem; color:var(--sun);
+  letter-spacing:.16em; text-transform:uppercase;
+  margin-bottom:1rem;
+}
+.fnh-badge {
+  display:inline-block;
+  background:rgba(196,125,14,.18);
+  border:1px solid var(--gold);
+  color:var(--pale);
+  font-size:.65rem; font-weight:600;
+  padding:.28rem .75rem; border-radius:100px;
+  margin-bottom:1rem;
+}
+.fnh-process {
+  font-size:.75rem; color:rgba(253,252,249,.45);
+  line-height:1.6; margin-bottom:1rem;
+}
+.fnh-markets {
+  display:flex; justify-content:center; gap:.5rem; flex-wrap:wrap;
+}
+.fnh-flag { font-size:1.4rem; }
+
+/* Arrow between nodes */
+.flow-arrow {
+  display:flex; align-items:center; justify-content:flex-start;
+  padding-left:1rem;
+  height:2rem;
+  position:relative;
+}
+.flow-arrow-lbl {
+  font-size:.6rem; letter-spacing:.15em;
+  text-transform:uppercase;
+  color:rgba(253,252,249,.25);
+  margin-left:2.8rem;
+}
+
+/* ════════════════════════════
+   LAYANAN
+════════════════════════════ */
+#layanan { background:var(--white); }
+
+.layanan-head {
+  margin-bottom:2.5rem;
+}
+
+.layanan-grid {
+  display:grid;
+  grid-template-columns:1fr;
+  gap:1rem;
+}
+
+.l-card {
+  background:var(--paper);
+  border:1px solid rgba(0,0,0,.07);
+  border-radius:18px;
+  padding:1.6rem;
+  position:relative;
+  overflow:hidden;
+  transition:transform .25s, box-shadow .25s;
+}
+.l-card::after {
+  content:'';
+  position:absolute;
+  top:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,var(--gold),var(--sun));
+  transform:scaleX(0);
+  transform-origin:left;
+  transition:transform .3s;
+  border-radius:0;
+}
+.l-card:hover { transform:translateY(-4px); box-shadow:0 16px 40px rgba(0,0,0,.09); }
+.l-card:hover::after { transform:scaleX(1); }
+
+.l-card-icon {
+  width:46px;height:46px;
+  background:linear-gradient(135deg,rgba(196,125,14,.14),rgba(233,160,32,.07));
+  border:1px solid rgba(196,125,14,.2);
+  border-radius:12px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.3rem;
+  margin-bottom:1.1rem;
+}
+
+.l-card-title {
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.15rem; font-weight:700;
+  color:var(--forest);
+  margin-bottom:.6rem;
+}
+
+.l-card-desc {
+  font-size:.83rem; line-height:1.75;
+  color:var(--mist);
+  margin-bottom:.9rem;
+}
+
+.l-card-list {
+  list-style:none;
+  display:flex; flex-direction:column; gap:.3rem;
+}
+.l-card-list li {
+  font-size:.78rem; color:var(--mist);
+  padding-left:1.1rem; position:relative;
+}
+.l-card-list li::before {
+  content:'→'; position:absolute; left:0;
+  color:var(--gold); font-size:.72rem;
+}
+
+/* ════════════════════════════
+   KEUNGGULAN
+════════════════════════════ */
+#keunggulan { background:var(--cream); }
+
+.kgl-items {
+  display:flex; flex-direction:column; gap:1.25rem;
+  margin-top:2.5rem; margin-bottom:2.5rem;
+}
+
+.kgl-item {
+  display:flex; gap:1rem; align-items:flex-start;
+}
+
+.kgl-num {
+  font-family:'JetBrains Mono',monospace;
+  font-size:.65rem; color:var(--gold); font-weight:700;
+  flex-shrink:0; padding-top:.15rem; width:24px;
+}
+
+.kgl-item-title {
+  font-size:.95rem; font-weight:700;
+  color:var(--forest); margin-bottom:.3rem;
+}
+
+.kgl-item-desc {
+  font-size:.82rem; line-height:1.75;
+  color:var(--mist);
+}
+
+/* Cert card */
+.cert-card {
+  background:var(--deep);
+  border-radius:22px;
+  padding:2rem 1.5rem;
+  color:var(--white);
+  position:relative; overflow:hidden;
+  box-shadow:0 24px 60px rgba(9,23,16,.3);
+}
+.cert-card::before {
+  content:'';
+  position:absolute; inset:0;
+  background:radial-gradient(ellipse at 80% 80%,rgba(196,125,14,.18) 0%,transparent 60%);
+}
+.cert-card-content { position:relative; z-index:1; }
+
+.cert-icon { font-size:2.5rem; margin-bottom:1.2rem; display:block; }
+
+.cert-title {
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.5rem; font-weight:700;
+  margin-bottom:.6rem;
+}
+
+.cert-desc {
+  font-size:.85rem; color:rgba(253,252,249,.55);
+  line-height:1.75; margin-bottom:1.5rem;
+}
+
+.cert-badges {
+  display:flex; flex-wrap:wrap; gap:.5rem;
+}
+.cert-badge {
+  background:rgba(196,125,14,.18);
+  border:1px solid rgba(196,125,14,.45);
+  color:var(--pale);
+  font-size:.65rem; font-weight:600;
+  font-family:'JetBrains Mono',monospace;
+  letter-spacing:.06em;
+  padding:.32rem .75rem; border-radius:100px;
+}
+
+/* ════════════════════════════
+   PROSES
+════════════════════════════ */
+#proses { background:var(--white); }
+
+.proses-header { text-align:center; margin-bottom:3rem; }
+
+.proses-steps {
+  display:grid; grid-template-columns:1fr 1fr;
+  gap:1rem;
+}
+
+.proses-step {
+  background:var(--paper);
+  border:1px solid rgba(0,0,0,.07);
+  border-radius:16px;
+  padding:1.4rem 1.1rem;
+  text-align:center;
+  transition:transform .2s, box-shadow .2s;
+}
+.proses-step:hover { transform:translateY(-3px); box-shadow:0 12px 30px rgba(0,0,0,.08); }
+
+.proses-num {
+  width:48px;height:48px;
+  background:linear-gradient(135deg,var(--gold),var(--sun));
+  color:var(--deep);
+  font-family:'JetBrains Mono',monospace;
+  font-weight:700; font-size:.9rem;
+  border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  margin:0 auto 1rem;
+  box-shadow:0 0 0 5px var(--white),0 0 0 7px rgba(196,125,14,.2);
+}
+
+.proses-step-title {
+  font-size:.85rem; font-weight:700;
+  color:var(--forest); margin-bottom:.5rem;
+}
+
+.proses-step-desc {
+  font-size:.75rem; line-height:1.65;
+  color:var(--mist);
+}
+
+/* ════════════════════════════
+   CTA
+════════════════════════════ */
+#cta {
+  background:var(--deep);
+  padding:4.5rem 1.25rem 8rem; /* extra bottom for float btn */
+  position:relative; overflow:hidden;
+  text-align:center;
+}
+
+#cta::before {
+  content:'';
+  position:absolute; inset:0;
+  background:repeating-linear-gradient(
+    -45deg,transparent,transparent 40px,
+    rgba(196,125,14,.02) 40px,rgba(196,125,14,.02) 41px
+  );
+}
+
+.cta-glow {
+  position:absolute; border-radius:50%;
+  width:400px;height:400px;
+  background:radial-gradient(circle,rgba(196,125,14,.14) 0%,transparent 70%);
+  top:50%;left:50%;transform:translate(-50%,-50%);
+  pointer-events:none;
+}
+
+.cta-content { position:relative; z-index:2; }
+
+.cta-title {
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(2rem,8vw,3rem);
+  font-weight:700; color:var(--white);
+  line-height:1.1; margin-bottom:1rem;
+}
+.cta-title em {
+  font-style:italic;
+  background:linear-gradient(90deg,var(--gold),var(--sun));
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+}
+
+.cta-desc {
+  font-size:.9rem; color:rgba(253,252,249,.55);
+  line-height:1.8; margin-bottom:2rem;
+}
+
+.cta-btns {
+  display:flex; flex-direction:column; gap:.75rem;
+  margin-bottom:2.5rem;
+}
+
+.cta-contact-row {
+  display:flex; flex-direction:column; gap:.9rem;
+  padding-top:2rem;
+  border-top:1px solid rgba(253,252,249,.08);
+}
+
+.cta-contact-item {
+  display:flex; align-items:center; justify-content:center;
+  gap:.5rem; text-decoration:none;
+  font-size:.82rem;
+  color:rgba(253,252,249,.45);
+  transition:color .2s;
+}
+.cta-contact-item:hover { color:var(--sun); }
+
+/* ════════════════════════════
+   FLOATING WA BUTTON
+════════════════════════════ */
+.wa-float {
+  position:fixed; bottom:1.5rem; right:1.25rem;
+  z-index:700;
+  background:linear-gradient(135deg,#25d366,#1eb655);
+  border-radius:100px;
+  padding:.75rem 1.2rem;
+  display:flex; align-items:center; gap:.5rem;
+  text-decoration:none;
+  box-shadow:0 8px 28px rgba(37,211,102,.4);
+  animation:float-bob 3s ease-in-out infinite;
+  transition:transform .2s;
+}
+.wa-float:active { transform:scale(.95); }
+.wa-float-icon { font-size:1.3rem; }
+.wa-float-text {
+  font-size:.8rem; font-weight:700;
+  color:#fff; white-space:nowrap;
+}
+
+@keyframes float-bob {
+  0%,100%{transform:translateY(0);}
+  50%{transform:translateY(-5px);}
+}
+
+/* ════════════════════════════
+   FOOTER
+════════════════════════════ */
+footer {
+  background:#040a06;
+  border-top:1px solid rgba(196,125,14,.14);
+  padding:2rem 1.25rem 1.5rem;
+  display:flex; flex-direction:column; gap:1.25rem;
+}
+
+.footer-brand {
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.1rem; font-weight:700;
+  color:rgba(253,252,249,.7);
+}
+
+.footer-links {
+  display:flex; flex-wrap:wrap; gap:.75rem 1.2rem;
+  list-style:none;
+}
+.footer-links a {
+  font-size:.78rem;
+  text-decoration:none;
+  color:rgba(253,252,249,.35);
+  transition:color .2s;
+}
+.footer-links a:hover { color:var(--gold); }
+
+.footer-copy {
+  font-size:.72rem;
+  color:rgba(253,252,249,.25);
+  border-top:1px solid rgba(255,255,255,.05);
+  padding-top:1.25rem;
+}
+
+/* ════════════════════════════
+   DESKTOP OVERRIDES (≥ 768px)
+════════════════════════════ */
+@media(min-width:768px){
+  /* Nav */
+  .nav-burger { display:none; }
+  .nav-links-desktop {
+    display:flex; list-style:none;
+    align-items:center; gap:1.75rem;
+  }
+  .nav-links-desktop a {
+    text-decoration:none;
+    color:rgba(253,252,249,.7);
+    font-size:.83rem; font-weight:500;
+    letter-spacing:.03em;
+    transition:color .2s;
+  }
+  .nav-links-desktop a:hover { color:var(--sun); }
+  .nav-links-desktop .nav-cta-link {
+    background:linear-gradient(135deg,var(--gold),var(--sun));
+    color:var(--deep) !important;
+    font-weight:700 !important;
+    padding:.5rem 1.3rem;
+    border-radius:100px;
+    transition:opacity .2s !important;
+  }
+  .nav-links-desktop .nav-cta-link:hover { opacity:.85; }
+  nav { padding: 0 2.5rem; height:65px; }
+
+  /* Hero */
+  #hero {
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    grid-template-rows:auto;
+    align-items:center;
+    padding:calc(65px + 3rem) 2.5rem 3rem;
+    gap:2rem;
+  }
+  .hero-drop-wrap {
+    height:auto; margin-bottom:0;
+    grid-column:2;grid-row:1;
+    order:2;
+    height:320px;
+  }
+  .hero-drop-core { width:160px;height:160px; }
+  .hero-drop-orbit:nth-child(1){width:240px;height:240px;}
+  .hero-drop-orbit:nth-child(2){width:320px;height:320px;}
+  .hero-content { grid-column:1;grid-row:1; order:1; }
+  .hero-btns { flex-direction:row; }
+  .btn-primary,.btn-outline { width:auto; }
+
+  /* Sections */
+  section { padding:5.5rem 2.5rem; }
+
+  /* Alur */
+  .flow-node-cards { grid-template-columns:repeat(3,1fr); }
+
+  /* Layanan */
+  .layanan-grid { grid-template-columns:1fr 1fr; }
+
+  /* Keunggulan */
+  .kgl-cert-layout {
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:4rem;
+    align-items:start;
+  }
+  .kgl-items { margin-bottom:0; }
+
+  /* Proses */
+  .proses-steps { grid-template-columns:repeat(4,1fr); }
+
+  /* CTA */
+  #cta { padding:5rem 2.5rem 6rem; }
+  .cta-btns { flex-direction:row; justify-content:center; }
+  .btn-primary,.btn-outline { width:auto; }
+  .cta-contact-row { flex-direction:row; justify-content:center; flex-wrap:wrap; gap:2rem; }
+}
+
+@media(min-width:1100px){
+  nav { padding:0 3.5rem; }
+  section { padding:6.5rem 3.5rem; }
+  #hero { padding:calc(65px + 4rem) 3.5rem 4rem; gap:3rem; }
+  .layanan-grid { grid-template-columns:repeat(4,1fr); }
+}
+
+/* ─── ANIMATIONS ─── */
+.reveal {
+  opacity:0; transform:translateY(24px);
+  transition:opacity .7s ease, transform .7s ease;
+}
+.reveal.visible { opacity:1; transform:translateY(0); }
+</style>
+</head>
+<body>
+
+<!-- ══ NAV ══ -->
+<nav>
+  <a href="#" class="nav-logo">
+    <div class="nav-logo-mark">🌿</div>
+    <div class="nav-logo-text">
+      Mustika Green
+      <small>Indonesia</small>
+    </div>
+  </a>
+
+  <!-- Desktop -->
+  <ul class="nav-links-desktop">
+    <li><a href="#alur">Ekosistem</a></li>
+    <li><a href="#layanan">Layanan</a></li>
+    <li><a href="#keunggulan">Keunggulan</a></li>
+    <li><a href="#proses">Proses</a></li>
+    <li><a href="#cta" class="nav-cta-link">Hubungi Kami</a></li>
+  </ul>
+
+  <!-- Mobile hamburger -->
+  <button class="nav-burger" id="burgerBtn" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- Mobile drawer -->
+<div class="nav-drawer" id="navDrawer">
+  <ul class="nav-drawer-links">
+    <li><a href="#alur" class="drawer-link">Ekosistem</a></li>
+    <li><a href="#layanan" class="drawer-link">Layanan</a></li>
+    <li><a href="#keunggulan" class="drawer-link">Keunggulan</a></li>
+    <li><a href="#proses" class="drawer-link">Proses</a></li>
+  </ul>
+  <a href="#cta" class="nav-drawer-cta drawer-link">💬 Hubungi Kami</a>
+</div>
+
+<!-- ══ HERO ══ -->
+<section id="hero">
+  <div class="hero-bg">
+    <div class="hero-blob hero-blob-1"></div>
+    <div class="hero-blob hero-blob-2"></div>
+    <div class="hero-rings">
+      <div class="hero-ring"></div>
+      <div class="hero-ring"></div>
+      <div class="hero-ring"></div>
+    </div>
+  </div>
+
+  <!-- Oil drop visual -->
+  <div class="hero-drop-wrap">
+    <div class="hero-drop-orbit">
+      <div class="orbit-dot"></div>
+    </div>
+    <div class="hero-drop-orbit">
+      <div class="orbit-dot"></div>
+    </div>
+    <div class="hero-drop-core"></div>
+  </div>
+
+  <!-- Text content -->
+  <div class="hero-content">
+    <div class="hero-badge">
+      <span class="hero-badge-dot"></span>
+      🇮🇩 Eksportir UCO Indonesia
+    </div>
+
+    <h1 class="hero-title">
+      Mengubah<br>
+      <em>Jelantah</em><br>
+      Jadi Energi
+    </h1>
+
+    <p class="hero-desc">
+      PT Mustika Green Indonesia adalah eksportir minyak jelantah (Used Cooking Oil) terpercaya. Kami menjembatani pengepul lokal ke pasar biodiesel internasional — mendorong ekonomi hijau yang berkelanjutan.
+    </p>
+
+    <div class="hero-btns">
+      <a href="#cta" class="btn-primary">Jadi Mitra Kami →</a>
+      <a href="#alur" class="btn-outline">Lihat Ekosistem</a>
+    </div>
+
+    <div class="hero-stats">
+      <div class="stat-item">
+        <div class="stat-val">100%</div>
+        <div class="stat-lbl">Berbasis Limbah</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-val">ISCC</div>
+        <div class="stat-lbl">Bersertifikasi</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-val">B2B</div>
+        <div class="stat-lbl">Ekspor Langsung</div>
+      </div>
+    </div>
+
+    <div class="hero-location">
+      <span class="hero-location-icon">📍</span>
+      Desa Cisoka, Kec. Cisoka, Kab. Tangerang — Banten
+    </div>
+  </div>
+</section>
+
+<!-- ══ ALUR EKOSISTEM ══ -->
+<section id="alur">
+  <div class="alur-header">
+    <span class="tag">// ekosistem jelantah</span>
+    <h2 class="s-title">Dari Dapur ke<br>Pasar Global</h2>
+    <p class="s-desc">Kami berada di puncak rantai pasok UCO Indonesia — menerima dari pengepul terpercaya dan menyalurkan langsung ke pembeli internasional.</p>
+  </div>
+
+  <div class="flow-track">
+
+    <!-- NODE 1: Sumber -->
+    <div class="flow-node reveal">
+      <div class="flow-node-bullet">🍳</div>
+      <div class="flow-node-label">Sumber Jelantah</div>
+      <div class="flow-node-cards">
+        <div class="flow-card"><span class="flow-card-ico">🍳</span> Restoran & Katering</div>
+        <div class="flow-card"><span class="flow-card-ico">🏫</span> Kantin & Kafetaria</div>
+        <div class="flow-card"><span class="flow-card-ico">🏠</span> Rumah Tangga</div>
+        <div class="flow-card"><span class="flow-card-ico">🏭</span> Industri Makanan</div>
+      </div>
+    </div>
+
+    <!-- ARROW -->
+    <div class="flow-arrow reveal">
+      <span class="flow-arrow-lbl">Setor ke pengepul</span>
+    </div>
+
+    <!-- NODE 2: Pengepul -->
+    <div class="flow-node reveal">
+      <div class="flow-node-bullet">🔄</div>
+      <div class="flow-node-label">Pengepul / Aggregator</div>
+      <div class="flow-node-cards">
+        <div class="flow-card"><span class="flow-card-ico">🔄</span> cureahh.com</div>
+        <div class="flow-card"><span class="flow-card-ico">🔄</span> mijel.id</div>
+        <div class="flow-card"><span class="flow-card-ico">🔄</span> jelantahgo.com</div>
+        <div class="flow-card"><span class="flow-card-ico">🔄</span> Pengepul Lokal</div>
+      </div>
+    </div>
+
+    <!-- ARROW -->
+    <div class="flow-arrow reveal">
+      <span class="flow-arrow-lbl">Kirim ke eksportir</span>
+    </div>
+
+    <!-- NODE 3: Mustika Green HERO -->
+    <div class="flow-node reveal" style="padding-left:0;">
+      <div class="flow-node-hero">
+        <div class="fnh-logo">Mustika Green</div>
+        <div class="fnh-sub">PT Mustika Green Indonesia</div>
+        <div class="fnh-badge">🌿 UCO Collector & Exporter</div>
+        <div class="fnh-process">Sortasi · Filtrasi · Uji Kualitas<br>Dokumen Ekspor · ISCC</div>
+        <div style="font-size:.72rem;color:var(--sun);font-family:'JetBrains Mono',monospace;margin-bottom:.8rem;">↓ Pasar Global ↓</div>
+        <div class="fnh-markets">
+          <span class="fnh-flag" title="Eropa">🇪🇺</span>
+          <span class="fnh-flag" title="Cina">🇨🇳</span>
+          <span class="fnh-flag" title="Korea">🇰🇷</span>
+          <span class="fnh-flag" title="Jepang">🇯🇵</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══ LAYANAN ══ -->
+<section id="layanan">
+  <div class="layanan-head">
+    <span class="tag">// layanan kami</span>
+    <h2 class="s-title">Dua Jalur Bisnis<br>Utama Kami</h2>
+    <p class="s-desc">Kami melayani penjualan domestik maupun ekspor internasional dengan standar kualitas terverifikasi dan dokumen lengkap.</p>
+  </div>
+
+  <div class="layanan-grid">
+    <div class="l-card reveal">
+      <div class="l-card-icon">🏠</div>
+      <div class="l-card-title">Penjualan Lokal</div>
+      <p class="l-card-desc">Minyak jelantah yang disortasi dan disaring sesuai standar kualitas, disalurkan ke pembeli lokal industri.</p>
+      <ul class="l-card-list">
+        <li>Kontrak & kesepakatan harga</li>
+        <li>Perencanaan volume & stok</li>
+        <li>Pengiriman terjadwal</li>
+        <li>Penagihan & pembayaran terstruktur</li>
+      </ul>
+    </div>
+
+    <div class="l-card reveal">
+      <div class="l-card-icon">✈️</div>
+      <div class="l-card-title">Ekspor Internasional</div>
+      <p class="l-card-desc">Ekspor UCO berkualitas tinggi ke mitra internasional dengan dokumen dan logistik ditangani penuh.</p>
+      <ul class="l-card-list">
+        <li>Perjanjian ekspor internasional</li>
+        <li>Koordinasi kontainer & volume</li>
+        <li>Invoice, Packing List, COO</li>
+        <li>Dokumen ISCC & sertifikasi</li>
+      </ul>
+    </div>
+
+    <div class="l-card reveal">
+      <div class="l-card-icon">🔬</div>
+      <div class="l-card-title">QC & Sortasi UCO</div>
+      <p class="l-card-desc">Quality control menyeluruh memastikan setiap batch UCO memenuhi spesifikasi pembeli internasional.</p>
+      <ul class="l-card-list">
+        <li>Uji kadar FFA & moisture</li>
+        <li>Filtrasi multi-tahap</li>
+        <li>Sertifikasi lab independen</li>
+        <li>Traceability data pengepul</li>
+      </ul>
+    </div>
+
+    <div class="l-card reveal">
+      <div class="l-card-icon">🤝</div>
+      <div class="l-card-title">Kemitraan Pengepul</div>
+      <p class="l-card-desc">Kami bermitra dengan pengepul resmi di seluruh Jabodetabek untuk pasokan UCO konsisten dan berkualitas.</p>
+      <ul class="l-card-list">
+        <li>Harga kompetitif & transparan</li>
+        <li>Penjemputan terjadwal</li>
+        <li>Pembayaran cepat & tepat waktu</li>
+        <li>Dukungan teknis pengepul</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ══ KEUNGGULAN ══ -->
+<section id="keunggulan">
+  <span class="tag">// mengapa mustika green</span>
+  <h2 class="s-title">Mitra Ekspor UCO<br>yang Terpercaya</h2>
+  <p class="s-desc">Kami bukan sekadar pembeli — kami mitra jangka panjang yang membantu ekosistem jelantah Indonesia tumbuh bersama.</p>
+
+  <div class="kgl-cert-layout">
+    <div class="kgl-items">
+      <div class="kgl-item reveal">
+        <div class="kgl-num">01</div>
+        <div>
+          <div class="kgl-item-title">Jaringan Pengepul Terverifikasi</div>
+          <div class="kgl-item-desc">Bekerja sama dengan platform pengepul digital terkemuka untuk memastikan traceability dan konsistensi pasokan UCO dari seluruh Jabodetabek.</div>
+        </div>
+      </div>
+      <div class="kgl-item reveal">
+        <div class="kgl-num">02</div>
+        <div>
+          <div class="kgl-item-title">Sertifikasi ISCC & Standar Internasional</div>
+          <div class="kgl-item-desc">UCO yang kami ekspor dilengkapi sertifikasi ISCC yang diakui pasar Eropa dan Asia sebagai standar keberlanjutan.</div>
+        </div>
+      </div>
+      <div class="kgl-item reveal">
+        <div class="kgl-num">03</div>
+        <div>
+          <div class="kgl-item-title">Dokumen Ekspor Lengkap</div>
+          <div class="kgl-item-desc">Kami menangani semua kebutuhan dokumen: Invoice Komersial, Packing List, Certificate of Origin, hingga dokumen kepabeanan — zero hassle.</div>
+        </div>
+      </div>
+      <div class="kgl-item reveal">
+        <div class="kgl-num">04</div>
+        <div>
+          <div class="kgl-item-title">Mendukung Ekonomi Sirkular</div>
+          <div class="kgl-item-desc">Setiap liter jelantah yang kami proses adalah satu langkah menuju Indonesia yang lebih bersih — dari limbah dapur menjadi bahan bakar biodiesel dunia.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cert-card reveal">
+      <div class="cert-card-content">
+        <span class="cert-icon">🌍</span>
+        <div class="cert-title">Ekspor ke<br>Pasar Global</div>
+        <p class="cert-desc">UCO dari Indonesia memiliki permintaan tinggi di pasar Eropa, China, Korea, dan Jepang sebagai bahan baku biodiesel dan renewable fuel. Kami adalah jembatan pengepul Indonesia ke pasar dunia.</p>
+        <div class="cert-badges">
+          <span class="cert-badge">ISCC Certified</span>
+          <span class="cert-badge">HVO / SAF Feedstock</span>
+          <span class="cert-badge">Biodiesel B100</span>
+          <span class="cert-badge">RED II Compliant</span>
+          <span class="cert-badge">CO₂ Reduction</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ PROSES ══ -->
+<section id="proses">
+  <div class="proses-header">
+    <span class="tag">// alur kerja</span>
+    <h2 class="s-title">Proses Sederhana,<br>Hasil Maksimal</h2>
+  </div>
+
+  <div class="proses-steps">
+    <div class="proses-step reveal">
+      <div class="proses-num">01</div>
+      <div class="proses-step-title">Pengiriman UCO</div>
+      <p class="proses-step-desc">Pengepul mengirimkan minyak jelantah ke fasilitas kami di Cisoka, Tangerang sesuai jadwal.</p>
+    </div>
+    <div class="proses-step reveal">
+      <div class="proses-num">02</div>
+      <div class="proses-step-title">QC & Filtrasi</div>
+      <p class="proses-step-desc">UCO diuji kualitasnya, disaring, dan diproses agar memenuhi spesifikasi standar ekspor internasional.</p>
+    </div>
+    <div class="proses-step reveal">
+      <div class="proses-num">03</div>
+      <div class="proses-step-title">Dokumen & Sertifikasi</div>
+      <p class="proses-step-desc">Persiapan dokumen ekspor lengkap: Invoice, Packing List, COO, ISCC Certificate, dan kepabeanan.</p>
+    </div>
+    <div class="proses-step reveal">
+      <div class="proses-num">04</div>
+      <div class="proses-step-title">Pengiriman Global</div>
+      <p class="proses-step-desc">UCO dikirim via kontainer ke pembeli internasional di Eropa, Asia Timur, dan pasar biodiesel dunia.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CTA ══ -->
+<section id="cta">
+  <div class="cta-glow"></div>
+  <div class="cta-content">
+    <span class="tag" style="display:block;margin-bottom:.8rem;">// bergabung bersama kami</span>
+    <h2 class="cta-title">
+      Siap Jadi Mitra<br><em>Pengepul</em> Kami?
+    </h2>
+    <p class="cta-desc">Kami selalu membuka kemitraan dengan pengepul UCO terpercaya di seluruh Indonesia. Dapatkan harga kompetitif, pembayaran tepat waktu, dan dukungan penuh dari tim kami.</p>
+
+    <div class="cta-btns">
+      <a href="https://wa.me/628XXXXXXXXXX" class="btn-primary" target="_blank">💬 WhatsApp Kami</a>
+      <a href="mailto:info@mustikagreen.com" class="btn-outline">📧 Kirim Email</a>
+    </div>
+
+    <div class="cta-contact-row">
+      <a href="mailto:info@mustikagreen.com" class="cta-contact-item">
+        <span>📧</span> info@mustikagreen.com
+      </a>
+      <a href="#" class="cta-contact-item">
+        <span>📍</span> Cisoka, Kab. Tangerang
+      </a>
+      <a href="#" class="cta-contact-item">
+        <span>🌐</span> mustikagreen.com
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOOTER ══ -->
+<footer>
+  <div class="footer-brand">PT Mustika Green Indonesia</div>
+  <ul class="footer-links">
+    <li><a href="#alur">Ekosistem</a></li>
+    <li><a href="#layanan">Layanan</a></li>
+    <li><a href="#keunggulan">Keunggulan</a></li>
+    <li><a href="#cta">Kontak</a></li>
+  </ul>
+  <div class="footer-copy">© 2025 PT Mustika Green Indonesia. UCO Exporter · Cisoka, Tangerang</div>
+</footer>
+
+<!-- ══ FLOATING WA BUTTON ══ -->
+<a href="https://wa.me/628XXXXXXXXXX" class="wa-float" target="_blank">
+  <span class="wa-float-icon">💬</span>
+  <span class="wa-float-text">WhatsApp</span>
+</a>
+
+<script>
+// ─── Hamburger Menu ───
+const burger = document.getElementById('burgerBtn');
+const drawer = document.getElementById('navDrawer');
+
+burger.addEventListener('click', () => {
+  const isOpen = drawer.classList.toggle('open');
+  burger.classList.toggle('open', isOpen);
+  document.body.style.overflow = isOpen ? 'hidden' : '';
+});
+
+document.querySelectorAll('.drawer-link').forEach(link => {
+  link.addEventListener('click', () => {
+    drawer.classList.remove('open');
+    burger.classList.remove('open');
+    document.body.style.overflow = '';
+  });
+});
+
+// Close on outside click
+document.addEventListener('click', e => {
+  if(drawer.classList.contains('open') && !drawer.contains(e.target) && !burger.contains(e.target)){
+    drawer.classList.remove('open');
+    burger.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+});
+
+// ─── Scroll reveal ───
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry, i) => {
+    if(entry.isIntersecting){
+      entry.target.style.transitionDelay = `${(i % 4) * 80}ms`;
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.12 });
+
+reveals.forEach(el => observer.observe(el));
+
+// ─── Nav scroll state ───
+const nav = document.querySelector('nav');
+window.addEventListener('scroll', () => {
+  nav.style.boxShadow = window.scrollY > 30
+    ? '0 4px 24px rgba(0,0,0,.35)'
+    : 'none';
+});
+</script>
+</body>
+</html>

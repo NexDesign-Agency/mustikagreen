@@ -2,12 +2,10 @@
 
 import { useState, useEffect } from "react";
 import { Link } from "@/i18n/routing";
-import { useTranslations } from "next-intl";
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  // Optional: add useTranslations if you want to localize nav links later
 
   useEffect(() => {
     const handleScroll = () => {
@@ -41,12 +39,24 @@ export default function Navigation() {
 
         {/* Desktop */}
         <ul className="nav-links-desktop">
-          <li><Link href="/#alur">Ekosistem</Link></li>
-          <li><Link href="/#layanan">Layanan</Link></li>
-          <li><Link href="/#keunggulan">Keunggulan</Link></li>
-          <li><Link href="/#proses">Proses</Link></li>
-          <li><Link href="/about">Profil</Link></li>
-          <li><Link href="/#cta" className="nav-cta-link">Hubungi Kami</Link></li>
+          <li>
+            <Link href="/" onClick={closeDrawer}>
+              <span data-id="true">Beranda</span>
+              <span data-en="true">Home</span>
+            </Link>
+          </li>
+          <li>
+            <Link href="/about" onClick={closeDrawer}>
+              <span data-id="true">Tentang</span>
+              <span data-en="true">About Us</span>
+            </Link>
+          </li>
+          <li>
+            <Link href="/#cta" className="nav-cta-link" onClick={closeDrawer}>
+              <span data-id="true">Hubungi Kami</span>
+              <span data-en="true">Contact Us</span>
+            </Link>
+          </li>
         </ul>
 
         {/* Mobile hamburger */}
@@ -62,14 +72,22 @@ export default function Navigation() {
       {/* Mobile drawer */}
       <div className={`nav-drawer ${isOpen ? 'open' : ''}`}>
         <ul className="nav-drawer-links">
-          <li><Link href="/#alur" className="drawer-link" onClick={closeDrawer}>Ekosistem</Link></li>
-          <li><Link href="/#layanan" className="drawer-link" onClick={closeDrawer}>Layanan</Link></li>
-          <li><Link href="/#keunggulan" className="drawer-link" onClick={closeDrawer}>Keunggulan</Link></li>
-          <li><Link href="/#proses" className="drawer-link" onClick={closeDrawer}>Proses</Link></li>
-          <li><Link href="/about" className="drawer-link" onClick={closeDrawer}>Profil</Link></li>
+          <li>
+            <Link href="/" className="drawer-link" onClick={closeDrawer}>
+              <span data-id="true">Beranda</span>
+              <span data-en="true">Home</span>
+            </Link>
+          </li>
+          <li>
+            <Link href="/about" className="drawer-link" onClick={closeDrawer}>
+              <span data-id="true">Tentang</span>
+              <span data-en="true">About Us</span>
+            </Link>
+          </li>
         </ul>
         <Link href="/#cta" className="nav-drawer-cta drawer-link" onClick={closeDrawer}>
-          💬 Hubungi Kami
+          <span data-id="true">💬 Hubungi Kami</span>
+          <span data-en="true">💬 Contact Us</span>
         </Link>
       </div>
     </>

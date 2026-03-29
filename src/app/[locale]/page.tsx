@@ -31,8 +31,8 @@ export default function HomePage() {
           </h1>
 
           <p className="hero-desc">
-            <span data-id="true">PT Mustika Green Indonesia adalah eksportir minyak jelantah (Used Cooking Oil) terpercaya. Kami menjembatani pengepul lokal ke pasar biodiesel internasional — mendorong ekonomi hijau yang berkelanjutan.</span>
-            <span data-en="true">PT Mustika Green Indonesia is a trusted used cooking oil exporter. We bridge local collectors to the international biodiesel market — driving a sustainable green economy.</span>
+            <span data-id="true">PT Mustika Green Indo adalah eksportir minyak jelantah (Used Cooking Oil) terpercaya. Kami menjembatani pengepul lokal ke pasar biodiesel internasional — mendorong ekonomi hijau yang berkelanjutan.</span>
+            <span data-en="true">PT Mustika Green Indo is a trusted used cooking oil exporter. We bridge local collectors to the international biodiesel market — driving a sustainable green economy.</span>
           </p>
 
           <div className="hero-btns">
@@ -61,8 +61,8 @@ export default function HomePage() {
 
           <div className="hero-location">
             <span className="hero-location-icon">📍</span>
-            <span data-id="true">RT.05/RW.02, Cisoka, Kab. Tangerang — Banten</span>
-            <span data-en="true">RT.05/RW.02, Cisoka, Tangerang Regency — Banten, Indonesia</span>
+            <span data-id="true">Jl. Putra 5, Ps. Kemis, Kab. Tangerang — Banten</span>
+            <span data-en="true">Jl. Putra 5, Ps. Kemis, Tangerang Regency — Banten, Indonesia</span>
           </div>
         </div>
       </section>
@@ -108,7 +108,7 @@ export default function HomePage() {
           <div className="flow-node reveal" style={{paddingLeft: 0}}>
             <div className="flow-node-hero">
               <div className="fnh-logo">Mustika Green</div>
-              <div className="fnh-sub">PT Mustika Green Indonesia</div>
+              <div className="fnh-sub">PT Mustika Green Indo</div>
               <div className="fnh-badge">🌿 UCO Collector & Exporter</div>
               <div className="fnh-process">
                 <span data-id="true">Sortasi · Filtrasi · Uji Kualitas<br />Dokumen Ekspor · ISCC</span>

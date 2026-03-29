@@ -65,7 +65,7 @@ export default function KontakPage() {
               <div className="kt-pill-icon kt-pill-loc">📍</div>
               <div>
                 <div className="kt-pill-label"><span data-id="true">Lokasi</span><span data-en="true">Location</span></div>
-                <div className="kt-pill-value">RT.05/RW.02, Cisoka, Kab. Tangerang</div>
+                <div className="kt-pill-value">Ps. Kemis, Kab. Tangerang</div>
               </div>
             </div>
             <div className="kt-pill">
@@ -199,9 +199,9 @@ export default function KontakPage() {
         <div className="kt-location-grid reveal">
           <div className="kt-map-card">
             <span className="kt-map-pin">📍</span>
-            <div className="kt-map-title">RT.05/RW.02, Cisoka</div>
-            <div className="kt-map-sub">Kab. Tangerang, Banten 15730</div>
-            <a href="https://maps.app.goo.gl/9GpRunXs5DXH7EVg9" target="_blank" rel="noopener noreferrer" className="kt-map-link">
+            <div className="kt-map-title">Ps. Kemis, Kab. Tangerang</div>
+            <div className="kt-map-sub">Banten 15560</div>
+            <a href="https://maps.app.goo.gl/26cgQNQ5rXBFJSBQ6" target="_blank" rel="noopener noreferrer" className="kt-map-link">
               <span data-id="true">Buka di Google Maps →</span>
               <span data-en="true">Open in Google Maps →</span>
             </a>
@@ -209,7 +209,7 @@ export default function KontakPage() {
           <div className="kt-loc-details">
             {[
               { icon: '🏭', lbl_id: 'Fasilitas Utama', lbl_en: 'Main Facility', val_id: 'Pusat pengumpulan, QC, filtrasi, dan penyimpanan UCO', val_en: 'UCO collection, QC, filtration, and storage center' },
-              { icon: '📍', lbl_id: 'Alamat Lengkap', lbl_en: 'Full Address', val_id: 'PCPH+FVJ, RT.05/RW.02, Cisoka, Kab. Tangerang, Banten 15730', val_en: 'PCPH+FVJ, RT.05/RW.02, Cisoka, Tangerang, Banten 15730' },
+              { icon: '📍', lbl_id: 'Alamat Lengkap', lbl_en: 'Full Address', val_id: 'RGCP+49J, Jl. Putra 5, Ps. Kemis, Tangerang, Banten 15560', val_en: 'RGCP+49J, Jl. Putra 5, Ps. Kemis, Tangerang, Banten 15560' },
               { icon: '🚗', lbl_id: 'Akses', lbl_en: 'Access', val_id: '±40 menit dari Jakarta Barat via Tol Tangerang–Merak', val_en: '±40 minutes from West Jakarta via Tangerang–Merak Toll Road' },
               { icon: '🌐', lbl_id: 'Cakupan Operasional', lbl_en: 'Operational Coverage', val_id: 'Jabodetabek — pengumpulan aktif di seluruh wilayah', val_en: 'Greater Jakarta — active collection across the entire area' },
             ].map((item, i) => (
@@ -238,20 +238,10 @@ export default function KontakPage() {
           <span data-en="true">Working Hours</span>
         </h2>
         <div className="kt-hours-grid reveal">
-          <div className={`kt-hours-card ${[1,2,3,4,5].includes(todayCard) ? 'kt-hours-active' : ''}`}>
-            <div className="kt-hours-day"><span data-id="true">Senin – Jumat</span><span data-en="true">Monday – Friday</span></div>
-            <div className="kt-hours-time">08.00 – 17.00</div>
+          <div className="kt-hours-card kt-hours-active" style={{ gridColumn: 'span 3' }}>
+            <div className="kt-hours-day"><span data-id="true">Setiap Hari</span><span data-en="true">Every Day</span></div>
+            <div className="kt-hours-time">08.00 – 20.00</div>
             <span className="kt-hours-badge open"><span data-id="true">Buka</span><span data-en="true">Open</span></span>
-          </div>
-          <div className={`kt-hours-card ${todayCard === 6 ? 'kt-hours-active' : ''}`}>
-            <div className="kt-hours-day"><span data-id="true">Sabtu</span><span data-en="true">Saturday</span></div>
-            <div className="kt-hours-time">08.00 – 14.00</div>
-            <span className="kt-hours-badge open"><span data-id="true">Buka</span><span data-en="true">Open</span></span>
-          </div>
-          <div className={`kt-hours-card ${todayCard === 0 ? 'kt-hours-active' : ''}`}>
-            <div className="kt-hours-day"><span data-id="true">Minggu</span><span data-en="true">Sunday</span></div>
-            <div className="kt-hours-time"><span data-id="true">Tutup</span><span data-en="true">Closed</span></div>
-            <span className="kt-hours-badge closed"><span data-id="true">Libur</span><span data-en="true">Holiday</span></span>
           </div>
         </div>
       </section>

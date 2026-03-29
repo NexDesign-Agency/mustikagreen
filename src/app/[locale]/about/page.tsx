@@ -13,8 +13,8 @@ export default function AboutPage() {
         </div>
 
         <div className="cover-eyebrow">
-          <span data-id="true">Company Profile · PT Mustika Green Indonesia · 2025</span>
-          <span data-en="true">Company Profile · PT Mustika Green Indonesia · 2025</span>
+          <span data-id="true">Company Profile · PT Mustika Green Indo · 2025</span>
+          <span data-en="true">Company Profile · PT Mustika Green Indo · 2025</span>
         </div>
 
         <h1 className="cover-title">
@@ -38,7 +38,7 @@ export default function AboutPage() {
           </div>
           <div className="cover-meta-item">
             <div className="cover-meta-label"><span data-id="true">Domisili</span><span data-en="true">Location</span></div>
-            <div className="cover-meta-val">Cisoka, Tangerang</div>
+            <div className="cover-meta-val">Ps. Kemis, Tangerang</div>
           </div>
           <div className="cover-meta-item">
             <div className="cover-meta-label"><span data-id="true">Sertifikasi</span><span data-en="true">Certification</span></div>
@@ -64,10 +64,10 @@ export default function AboutPage() {
 
         <div className="about-body reveal">
           <span data-id="true">
-            <strong>PT Mustika Green Indonesia</strong> adalah perusahaan eksportir minyak jelantah (Used Cooking Oil / UCO) yang berpusat di Cisoka, Kabupaten Tangerang, Banten. Berdiri sejak 2023, kami hadir untuk menjawab peluang besar dari meningkatnya permintaan global terhadap bahan baku biodiesel dan renewable fuel berbasis limbah minyak nabati.
+            <strong>PT Mustika Green Indo</strong> adalah perusahaan eksportir minyak jelantah (Used Cooking Oil / UCO) yang berpusat di Cisoka, Kabupaten Tangerang, Banten. Berdiri sejak 2023, kami hadir untuk menjawab peluang besar dari meningkatnya permintaan global terhadap bahan baku biodiesel dan renewable fuel berbasis limbah minyak nabati.
           </span>
           <span data-en="true">
-            <strong>PT Mustika Green Indonesia</strong> is a used cooking oil (UCO) exporter headquartered in Cisoka, Tangerang Regency, Banten. Established in 2023, we were founded to address the growing global demand for biodiesel and renewable fuel feedstock derived from waste vegetable oil.
+            <strong>PT Mustika Green Indo</strong> is a used cooking oil (UCO) exporter headquartered in Ps. Kemis, Tangerang Regency, Banten. Established in 2023, we were founded to address the growing global demand for biodiesel and renewable fuel feedstock derived from waste vegetable oil.
           </span>
         </div>
 
@@ -149,8 +149,8 @@ export default function AboutPage() {
             <div style={{ position: 'absolute', left: '-6px', top: '0', width: '10px', height: '10px', borderRadius: '50%', background: 'var(--sun)' }}></div>
             <h4 style={{ color: 'var(--forest)', fontSize: '1.1rem', marginBottom: '0.4rem' }}><span data-id="true">2023 - Pendirian</span><span data-en="true">2023 - Foundation</span></h4>
             <p style={{ fontSize: '0.9rem', color: 'var(--mist)' }}>
-              <span data-id="true">PT Mustika Green Indonesia didirikan di Cisoka, Tangerang. Mulai membangun fasilitas pengumpulan dan jaringan pengepul lokal tahap awal.</span>
-              <span data-en="true">PT Mustika Green Indonesia was founded in Cisoka, Tangerang. Started building collection facilities and early-stage local collector networks.</span>
+              <span data-id="true">PT Mustika Green Indo didirikan di Ps. Kemis, Tangerang. Mulai membangun fasilitas pengumpulan dan jaringan pengepul lokal tahap awal.</span>
+              <span data-en="true">PT Mustika Green Indo was founded in Cisoka, Tangerang. Started building collection facilities and early-stage local collector networks.</span>
             </p>
           </div>
           <div className="milestone-item" style={{ paddingLeft: '1.5rem', borderLeft: '2px solid var(--gold)', position: 'relative' }}>
@@ -194,7 +194,7 @@ export default function AboutPage() {
             <div className="legal-icon">🏢</div>
             <div>
               <div className="legal-label"><span data-id="true">Nama Perusahaan</span><span data-en="true">Company Name</span></div>
-              <div className="legal-val">PT Mustika Green Indonesia</div>
+              <div className="legal-val">PT Mustika Green Indo</div>
             </div>
           </div>
           <div className="legal-item reveal">
@@ -215,7 +215,7 @@ export default function AboutPage() {
             <div className="legal-icon">📍</div>
             <div>
               <div className="legal-label"><span data-id="true">Alamat</span><span data-en="true">Address</span></div>
-              <div className="legal-val">Desa Cisoka, Kec. Cisoka, Kab. Tangerang, Banten</div>
+              <div className="legal-val">Jl. Putra 5, Ps. Kemis, Kab. Tangerang, Banten 15560</div>
             </div>
           </div>
           <div className="legal-item reveal">

@@ -33,7 +33,7 @@ export default function Navigation() {
           <div className="nav-logo-mark">🌿</div>
           <div className="nav-logo-text">
             Mustika Green
-            <small>Indonesia</small>
+            <small>Indo</small>
           </div>
         </Link>
 

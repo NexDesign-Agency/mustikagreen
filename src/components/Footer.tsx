@@ -3,7 +3,7 @@ import { Link } from "@/i18n/routing";
 export default function Footer() {
   return (
     <footer>
-      <div className="footer-brand">PT Mustika Green Indonesia</div>
+      <div className="footer-brand">PT Mustika Green Indo</div>
       <ul className="footer-links">
         <li>
           <Link href="/about">
@@ -30,7 +30,7 @@ export default function Footer() {
           </Link>
         </li>
       </ul>
-      <div className="footer-copy">© 2025 PT Mustika Green Indonesia. UCO Exporter · Cisoka, Tangerang</div>
+      <div className="footer-copy">© 2025 PT Mustika Green Indo. UCO Exporter · Ps. Kemis, Tangerang</div>
     </footer>
   );
 }

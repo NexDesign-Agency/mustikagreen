@@ -29,8 +29,8 @@ const jetbrains = JetBrains_Mono({
 });
 
 export const metadata = {
-  title: 'PT Mustika Green Indonesia',
-  description: 'Mustika Green Indonesia Export Used Cooking Oil'
+  title: 'PT Mustika Green Indo',
+  description: 'Mustika Green Indo Export Used Cooking Oil'
 };
 
 export function generateStaticParams() {

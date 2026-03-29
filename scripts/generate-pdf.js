@@ -49,8 +49,8 @@ async function generatePDF(locale) {
 
   const page = await browser.newPage();
 
-  // Mobile Viewport (iPhone 12 Pro Max)
-  await page.setViewport({ width: 428, height: 926, deviceScaleFactor: 2, isMobile: true, hasTouch: true });
+  // Desktop Viewport (High Res for Print)
+  await page.setViewport({ width: 1280, height: 1800, deviceScaleFactor: 2 });
 
   const url = `${BASE_URL}/${locale}/about`;
   console.log(`\n📄 Membuka: ${url}`);
@@ -58,10 +58,7 @@ async function generatePDF(locale) {
   await page.goto(url, { waitUntil: 'networkidle0', timeout: 90000 });
 
   // Tunggu font & render selesai
-  await new Promise(r => setTimeout(r, 3000));
-
-  // Paksa pakai style layaan layar HP (screen), abaikan @media print
-  await page.emulateMediaType('screen');
+  await new Promise(r => setTimeout(r, 4000));
 
   // Sembunyikan UI elemen yang tidak perlu, paksa semua visible
   await page.evaluate(() => {
@@ -75,8 +72,7 @@ async function generatePDF(locale) {
 
   await page.pdf({
     path: outputPath,
-    width: '428px',
-    height: '926px',
+    format: 'A4',
     printBackground: true,
     margin: { top: '0', right: '0', bottom: '0', left: '0' },
     displayHeaderFooter: false,

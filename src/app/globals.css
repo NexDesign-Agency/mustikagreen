@@ -2227,3 +2227,87 @@ footer {
   .pg-hero { padding-left: 3.5rem; padding-right: 3.5rem; }
   .svc-main-section, .svc-process-section, .svc-why-section, .kt-form-section, .kt-location-section, .kt-hours-section { padding-left: 3.5rem; padding-right: 3.5rem; }
 }
+/* ═══════════════════════════════
+   PRINT / PDF OVERRIDES (Desktop Mode)
+   ═══════════════════════════════ */
+@media print {
+  @page {
+    size: A4 portrait;
+    margin: 0;
+  }
+  
+  html, body { 
+    margin: 0; padding: 0; 
+    width: 210mm; 
+    background: #fff;
+  }
+
+  /* Force each section to be its own page */
+  .cp-cover,
+  .cp-section {
+    page-break-before: always;
+    page-break-after: always;
+    page-break-inside: avoid;
+    height: 100vh;
+    min-height: 297mm; /* Full A4 Height */
+    display: flex !important;
+    flex-direction: column;
+    justify-content: center;
+    padding: 60px 80px !important;
+    box-sizing: border-box;
+    position: relative;
+    overflow: hidden;
+    background: var(--paper) !important;
+  }
+
+  /* Cover page specific (usually dark) */
+  .cp-cover {
+    page-break-before: auto;
+    background: var(--deep) !important;
+    color: white !important;
+  }
+  
+  /* Stats section (usually dark) */
+  .stats-section {
+    background: var(--deep) !important;
+    color: white !important;
+    page-break-after: auto; /* End of document */
+  }
+
+  /* Ensure all reveal elements are visible immediately */
+  .reveal { 
+    opacity: 1 !important; 
+    transform: none !important; 
+    visibility: visible !important;
+  }
+
+  /* Hide interactive/web-only elements */
+  .print-hidden, 
+  .wa-float, 
+  .lang-toggle, 
+  .nav, 
+  .footer, 
+  .nav-drawer, 
+  .nav-burger,
+  .divider {
+    display: none !important;
+  }
+
+  /* Grid Layout Fixes for Print */
+  .vm-grid, 
+  .legal-grid, 
+  .services-grid, 
+  .stats-grid {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 30px !important;
+  }
+
+  .s-title { margin-bottom: 2rem !important; }
+  
+  /* Fix image/background colors for PDF engines */
+  * { 
+    -webkit-print-color-adjust: exact !important; 
+    print-color-adjust: exact !important; 
+  }
+}

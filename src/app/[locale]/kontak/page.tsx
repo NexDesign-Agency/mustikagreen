@@ -65,7 +65,7 @@ export default function KontakPage() {
               <div className="kt-pill-icon kt-pill-loc">📍</div>
               <div>
                 <div className="kt-pill-label"><span data-id="true">Lokasi</span><span data-en="true">Location</span></div>
-                <div className="kt-pill-value">Ciasoko, Cisoka, Kab. Tangerang</div>
+                <div className="kt-pill-value">RT.05/RW.02, Cisoka, Kab. Tangerang</div>
               </div>
             </div>
             <div className="kt-pill">
@@ -199,9 +199,9 @@ export default function KontakPage() {
         <div className="kt-location-grid reveal">
           <div className="kt-map-card">
             <span className="kt-map-pin">📍</span>
-            <div className="kt-map-title">Ciasoko, Cisoka</div>
+            <div className="kt-map-title">RT.05/RW.02, Cisoka</div>
             <div className="kt-map-sub">Kab. Tangerang, Banten 15730</div>
-            <a href="https://maps.google.com/?q=Ciasoko+Cisoka+Tangerang" target="_blank" rel="noopener noreferrer" className="kt-map-link">
+            <a href="https://maps.app.goo.gl/9GpRunXs5DXH7EVg9" target="_blank" rel="noopener noreferrer" className="kt-map-link">
               <span data-id="true">Buka di Google Maps →</span>
               <span data-en="true">Open in Google Maps →</span>
             </a>
@@ -209,7 +209,7 @@ export default function KontakPage() {
           <div className="kt-loc-details">
             {[
               { icon: '🏭', lbl_id: 'Fasilitas Utama', lbl_en: 'Main Facility', val_id: 'Pusat pengumpulan, QC, filtrasi, dan penyimpanan UCO', val_en: 'UCO collection, QC, filtration, and storage center' },
-              { icon: '📍', lbl_id: 'Alamat Lengkap', lbl_en: 'Full Address', val_id: 'Desa Ciasoko, Kec. Cisoka, Kab. Tangerang, Banten 15730', val_en: 'Ciasoko Village, Cisoka District, Tangerang Regency, Banten 15730' },
+              { icon: '📍', lbl_id: 'Alamat Lengkap', lbl_en: 'Full Address', val_id: 'PCPH+FVJ, RT.05/RW.02, Cisoka, Kab. Tangerang, Banten 15730', val_en: 'PCPH+FVJ, RT.05/RW.02, Cisoka, Tangerang, Banten 15730' },
               { icon: '🚗', lbl_id: 'Akses', lbl_en: 'Access', val_id: '±40 menit dari Jakarta Barat via Tol Tangerang–Merak', val_en: '±40 minutes from West Jakarta via Tangerang–Merak Toll Road' },
               { icon: '🌐', lbl_id: 'Cakupan Operasional', lbl_en: 'Operational Coverage', val_id: 'Jabodetabek — pengumpulan aktif di seluruh wilayah', val_en: 'Greater Jakarta — active collection across the entire area' },
             ].map((item, i) => (

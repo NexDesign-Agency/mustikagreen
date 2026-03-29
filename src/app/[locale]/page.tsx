@@ -61,8 +61,8 @@ export default function HomePage() {
 
           <div className="hero-location">
             <span className="hero-location-icon">📍</span>
-            <span data-id="true">Desa Cisoka, Kec. Cisoka, Kab. Tangerang — Banten</span>
-            <span data-en="true">Cisoka, Tangerang Regency — Banten, Indonesia</span>
+            <span data-id="true">RT.05/RW.02, Cisoka, Kab. Tangerang — Banten</span>
+            <span data-en="true">RT.05/RW.02, Cisoka, Tangerang Regency — Banten, Indonesia</span>
           </div>
         </div>
       </section>

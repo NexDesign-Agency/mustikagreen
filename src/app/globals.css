@@ -2239,7 +2239,7 @@ footer {
   html, body { 
     margin: 0; padding: 0; 
     width: 210mm; 
-    background: #fff;
+    background: #fff !important;
   }
 
   /* Force each section to be its own page */
@@ -2249,7 +2249,7 @@ footer {
     page-break-after: always;
     page-break-inside: avoid;
     height: 100vh;
-    min-height: 297mm; /* Full A4 Height */
+    min-height: 297mm;
     display: flex !important;
     flex-direction: column;
     justify-content: center;
@@ -2258,21 +2258,40 @@ footer {
     position: relative;
     overflow: hidden;
     background: var(--paper) !important;
+    color: var(--forest) !important;
   }
 
-  /* Cover page specific (usually dark) */
+  /* Default text colors for light sections */
+  .cp-section .s-title, 
+  .cp-section .s-desc,
+  .cp-section .about-body,
+  .cp-section .vm-card-label,
+  .cp-section .misi-list li,
+  .cp-section .svc-title,
+  .cp-section .svc-desc,
+  .cp-section .legal-label,
+  .cp-section .legal-val {
+    color: var(--forest) !important;
+  }
+
+  /* Cover page specific (Dark Mode) */
   .cp-cover {
     page-break-before: auto;
     background: var(--deep) !important;
     color: white !important;
   }
+  .cp-cover * { color: white !important; }
+  .cp-cover em { color: var(--gold) !important; }
   
-  /* Stats section (usually dark) */
+  /* Stats section (Dark Mode) */
   .stats-section {
     background: var(--deep) !important;
     color: white !important;
-    page-break-after: auto; /* End of document */
+    page-break-after: auto;
   }
+  .stats-section .s-title { color: white !important; }
+  .stats-section .stat-val { color: var(--gold) !important; }
+  .stats-section .stat-lbl { color: rgba(255,255,255,0.7) !important; }
 
   /* Ensure all reveal elements are visible immediately */
   .reveal { 
@@ -2281,23 +2300,13 @@ footer {
     visibility: visible !important;
   }
 
-  /* Hide interactive/web-only elements */
-  .print-hidden, 
-  .wa-float, 
-  .lang-toggle, 
-  .nav, 
-  .footer, 
-  .nav-drawer, 
-  .nav-burger,
-  .divider {
+  /* Hide elements */
+  .print-hidden, .wa-float, .lang-toggle, .nav, .footer, .nav-drawer, .nav-burger, .divider, .cover-blob, .cover-rings {
     display: none !important;
   }
 
-  /* Grid Layout Fixes for Print */
-  .vm-grid, 
-  .legal-grid, 
-  .services-grid, 
-  .stats-grid {
+  /* Grid Layout Fixes */
+  .vm-grid, .legal-grid, .services-grid, .stats-grid {
     display: grid !important;
     grid-template-columns: 1fr 1fr !important;
     gap: 30px !important;
@@ -2305,9 +2314,9 @@ footer {
 
   .s-title { margin-bottom: 2rem !important; }
   
-  /* Fix image/background colors for PDF engines */
   * { 
     -webkit-print-color-adjust: exact !important; 
     print-color-adjust: exact !important; 
   }
 }
+

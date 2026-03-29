@@ -209,8 +209,8 @@ export default function HomePage() {
             <span data-en="true">Ready to Become<br />Our <em>Partner</em>?</span>
           </h2>
           <div className="cta-btns">
-            <a href="https://wa.me/6281219660232" className="btn-primary" target="_blank" rel="noopener noreferrer">💬 WhatsApp</a>
-            <a href="mailto:info@mustikagreen.com" className="btn-outline">📧 Kirim Email</a>
+            <a href="https://wa.me/6281259132223" className="btn-primary" target="_blank" rel="noopener noreferrer">💬 WhatsApp</a>
+            <a href="mailto:mustikagreenindonesia@gmail.com" className="btn-outline">📧 Kirim Email</a>
           </div>
         </div>
       </section>

@@ -52,7 +52,19 @@ export default function Navigation() {
             </Link>
           </li>
           <li>
-            <Link href="/#cta" className="nav-cta-link" onClick={closeDrawer}>
+            <Link href="/layanan" onClick={closeDrawer}>
+              <span data-id="true">Layanan</span>
+              <span data-en="true">Services</span>
+            </Link>
+          </li>
+          <li>
+            <Link href="/kontak" onClick={closeDrawer}>
+              <span data-id="true">Kontak</span>
+              <span data-en="true">Contact</span>
+            </Link>
+          </li>
+          <li>
+            <Link href="/kontak" className="nav-cta-link" onClick={closeDrawer}>
               <span data-id="true">Hubungi Kami</span>
               <span data-en="true">Contact Us</span>
             </Link>
@@ -84,8 +96,20 @@ export default function Navigation() {
               <span data-en="true">About Us</span>
             </Link>
           </li>
+          <li>
+            <Link href="/layanan" className="drawer-link" onClick={closeDrawer}>
+              <span data-id="true">Layanan</span>
+              <span data-en="true">Services</span>
+            </Link>
+          </li>
+          <li>
+            <Link href="/kontak" className="drawer-link" onClick={closeDrawer}>
+              <span data-id="true">Kontak</span>
+              <span data-en="true">Contact</span>
+            </Link>
+          </li>
         </ul>
-        <Link href="/#cta" className="nav-drawer-cta drawer-link" onClick={closeDrawer}>
+        <Link href="/kontak" className="nav-drawer-cta drawer-link" onClick={closeDrawer}>
           <span data-id="true">💬 Hubungi Kami</span>
           <span data-en="true">💬 Contact Us</span>
         </Link>

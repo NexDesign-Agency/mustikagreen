@@ -1,3 +1,5 @@
+import DownloadPdfButton from '@/components/DownloadPdfButton';
+
 export default function AboutPage() {
   return (
     <main>
@@ -24,6 +26,10 @@ export default function AboutPage() {
           <span data-id="true">Mengubah minyak jelantah menjadi bahan bakar masa depan — menghubungkan pengepul lokal Indonesia ke pasar biodiesel internasional.</span>
           <span data-en="true">Transforming used cooking oil into tomorrow's fuel — connecting Indonesian local collectors to the global biodiesel market.</span>
         </p>
+
+        <div className="print-hidden">
+          <DownloadPdfButton />
+        </div>
 
         <div className="cover-meta">
           <div className="cover-meta-item">
@@ -126,7 +132,47 @@ export default function AboutPage() {
         </div>
       </div>
 
-      <div className="divider"></div>
+      <div className="divider print-hidden"></div>
+
+      {/* Milestones */}
+      <div className="cp-section milestone-section">
+        <span className="tag">
+          <span data-id="true">// Perjalanan Kami</span>
+          <span data-en="true">// Our Milestones</span>
+        </span>
+        <h2 className="s-title reveal">
+          <span data-id="true">Sejarah & Pencapaian</span>
+          <span data-en="true">History & Achievements</span>
+        </h2>
+        <div className="milestones-grid reveal" style={{ marginTop: '2rem', display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+          <div className="milestone-item" style={{ paddingLeft: '1.5rem', borderLeft: '2px solid var(--gold)', position: 'relative' }}>
+            <div style={{ position: 'absolute', left: '-6px', top: '0', width: '10px', height: '10px', borderRadius: '50%', background: 'var(--sun)' }}></div>
+            <h4 style={{ color: 'var(--forest)', fontSize: '1.1rem', marginBottom: '0.4rem' }}><span data-id="true">2023 - Pendirian</span><span data-en="true">2023 - Foundation</span></h4>
+            <p style={{ fontSize: '0.9rem', color: 'var(--mist)' }}>
+              <span data-id="true">PT Mustika Green Indonesia didirikan di Cisoka, Tangerang. Mulai membangun fasilitas pengumpulan dan jaringan pengepul lokal tahap awal.</span>
+              <span data-en="true">PT Mustika Green Indonesia was founded in Cisoka, Tangerang. Started building collection facilities and early-stage local collector networks.</span>
+            </p>
+          </div>
+          <div className="milestone-item" style={{ paddingLeft: '1.5rem', borderLeft: '2px solid var(--gold)', position: 'relative' }}>
+            <div style={{ position: 'absolute', left: '-6px', top: '0', width: '10px', height: '10px', borderRadius: '50%', background: 'var(--sun)' }}></div>
+            <h4 style={{ color: 'var(--forest)', fontSize: '1.1rem', marginBottom: '0.4rem' }}><span data-id="true">2024 - Ekspansi Jaringan</span><span data-en="true">2024 - Network Expansion</span></h4>
+            <p style={{ fontSize: '0.9rem', color: 'var(--mist)' }}>
+              <span data-id="true">Mencapai kapasitas pengumpulan 500 ton per bulan. Memperluas titik kumpul (collection point) operasional ke seluruh area Jabodetabek.</span>
+              <span data-en="true">Reached a collection capacity of 500 tons per month. Expanded operational collection points across the Greater Jakarta area.</span>
+            </p>
+          </div>
+          <div className="milestone-item" style={{ paddingLeft: '1.5rem', borderLeft: '2px solid var(--gold)', position: 'relative' }}>
+            <div style={{ position: 'absolute', left: '-6px', top: '0', width: '10px', height: '10px', borderRadius: '50%', background: 'var(--sun)' }}></div>
+            <h4 style={{ color: 'var(--forest)', fontSize: '1.1rem', marginBottom: '0.4rem' }}><span data-id="true">2025 - Sertifikasi & Ekspor</span><span data-en="true">2025 - Certification & Export</span></h4>
+            <p style={{ fontSize: '0.9rem', color: 'var(--mist)' }}>
+              <span data-id="true">Memperoleh Sertifikasi ISCC dan secara resmi memulai ekspor UCO langsung ke pasar Eropa dan Asia Timur (Tiongkok, Jepang, Korea).</span>
+              <span data-en="true">Obtained ISCC Certification and officially commenced direct UCO exports to European and East Asian markets (China, Japan, Korea).</span>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div className="divider print-hidden"></div>
 
       {/* Legalitas */}
       <div className="cp-section legal-section">

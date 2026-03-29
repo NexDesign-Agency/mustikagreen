@@ -1609,26 +1609,38 @@ footer {
 @media print {
   * { -webkit-print-color-adjust:exact !important; print-color-adjust:exact !important; }
 
-  body::after, .lang-toggle, .wa-float, nav, footer,
-  .nav-download-btn { display:none !important; }
+  body::after, .lang-toggle, .wa-float, nav, footer, .nav-drawer,
+  .nav-download-btn, .print-hidden { display:none !important; }
 
   
 
   .cp-cover {
-    min-height:0;
-    padding:2cm 2cm 1.5cm !important;
+    min-height:100vh !important;
+    padding:3cm 2cm 2cm !important;
     background:var(--deep) !important;
-    page-break-after:always;
     display:flex !important;
     flex-direction:column;
-    justify-content:flex-end;
+    justify-content:center;
+    page-break-after: always;
   }
 
   .cover-blob, .cover-rings { display:none; }
 
-  .cp-section { padding:1.2cm 2cm !important; }
+  .cp-section { 
+    padding:2cm 2cm !important; 
+    min-height: 100vh !important;
+    display: flex !important;
+    flex-direction: column;
+    justify-content: center;
+    page-break-after: always;
+    box-sizing: border-box;
+  }
 
   section, .cp-section { page-break-inside:avoid; }
+
+  /* Hapus blank page terakhir */
+  main > *:last-child,
+  .stats-section { page-break-after: avoid !important; }
 
   .vm-grid,
   .team-grid { grid-template-columns:1fr 1fr !important; }
